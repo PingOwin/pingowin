@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingIt.Cmd", "PingIt.Cmd\PingIt.Cmd.csproj", "{BE002B8E-C407-4B3D-B07D-DD0E78369CFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingIt.Lib", "PingIt.Lib\PingIt.Lib.csproj", "{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BE002B8E-C407-4B3D-B07D-DD0E78369CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE002B8E-C407-4B3D-B07D-DD0E78369CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE002B8E-C407-4B3D-B07D-DD0E78369CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

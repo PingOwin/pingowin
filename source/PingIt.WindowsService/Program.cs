@@ -1,5 +1,6 @@
 ﻿using System;
 using PingIt.Store.SQLite;
+using Topshelf;
 
 namespace PingIt.WindowsService
 {
@@ -7,18 +8,20 @@ namespace PingIt.WindowsService
     {
         static void Main(string[] args)
         {
-            var settings = new ConfigFileSettings();
-            var migrator = new Migrator(settings);
-            migrator.Migrate();
 
-            var repo = new PenguinRepository(settings);
-            var all = repo.GetAll().GetAwaiter().GetResult();
-            foreach (var penguin in all)
+            HostFactory.Run(x =>
             {
-                Console.WriteLine("{0} - {1}", penguin.Id, penguin.Url);
-            }
-
-            Console.ReadKey();
+                x.Service<PingOwinServiceHost>(s =>
+                {
+                    s.ConstructUsing(name => new PingOwinServiceHost()); //kernel.get?
+                    s.WhenStarted(p => p.Start());
+                    s.WhenStopped(p => p.Stop());
+                });
+                x.RunAsLocalSystem();
+                x.SetDescription("PingOwin pinging service");
+                x.SetDisplayName("PingOwin");
+                x.SetServiceName("PingOwin");
+            });
         }
     }
 }

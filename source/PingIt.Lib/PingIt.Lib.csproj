@@ -51,6 +51,7 @@
     <Compile Include="Pinger.cs" />
     <Compile Include="PingResponse.cs" />
     <Compile Include="PingTaskCreator.cs" />
+    <Compile Include="Processing\PenguinProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlackMessageTransformer.cs" />
     <Compile Include="SlackOutputter.cs" />

@@ -1,0 +1,13 @@
+﻿@Master['MasterPage.sshtml']
+@Section['Content']
+<div class="row" style="margin-top:50px;">
+    <div class="col-md-12">
+        <h2>Results:</h2>
+        <ul>
+            @Each.Results
+            <li>@Current.Url</li>
+            @EndEach
+        </ul>
+    </div>
+</div>
+@EndSection

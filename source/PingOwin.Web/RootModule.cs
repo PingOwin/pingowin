@@ -8,9 +8,9 @@ namespace PingIt.Cmd.WebHost
     {
         public RootModule()
         {
-            Get["/"] = x => new RedirectResponse("/allpinguins", RedirectResponse.RedirectType.Temporary);
+            Get["/"] = x => new RedirectResponse("/pingowins", RedirectResponse.RedirectType.Temporary);
             
-            Get["/allpinguins"] = x =>
+            Get["/pingowins"] = x =>
             {
                 var allPenguinsModel = new PingOwinsModel();
                 var pengs = new List<SinglePingOwin>
@@ -19,7 +19,18 @@ namespace PingIt.Cmd.WebHost
                 };
                 allPenguinsModel.Penguins = pengs;
                 return View["AllPingowins.sshtml", allPenguinsModel];
-            }; ;
+            };
+
+            Get["/results"] = x =>
+            {
+                var allResults = new PingResultsModel();
+                var pengs = new List<SingleResult>
+                {
+                    new SingleResult {Url = "https://www.aftenposten.no"}
+                };
+                allResults.Results = pengs;
+                return View["Results.sshtml", allResults];
+            };
         }
     }
 
@@ -29,6 +40,15 @@ namespace PingIt.Cmd.WebHost
     }
 
     public class SinglePingOwin
+    {
+        public string Url { get; set; }
+    }
+    public class PingResultsModel
+    {
+        public IEnumerable<SingleResult> Results { get; set; }
+    }
+
+    public class SingleResult
     {
         public string Url { get; set; }
     }

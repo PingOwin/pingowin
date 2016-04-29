@@ -83,12 +83,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="..\PingOwin.Web\views\AllPenguins.sshtml">
-      <Link>views\AllPenguins.sshtml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\PingOwin.Web\views\MasterPage.sshtml">
       <Link>views\MasterPage.sshtml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\PingOwin.Web\views\AllPingowins.sshtml">
+      <Link>views\AllPingowins.sshtml</Link>
+    </Content>
+    <Content Include="..\PingOwin.Web\views\Results.sshtml">
+      <Link>views\Results.sshtml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Web.Debug.config">

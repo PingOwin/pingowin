@@ -29,6 +29,10 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">PingOwin</a>
+                <ul class="nav navbar-nav">                    
+                    <li><a href="/pingowins">PingOwins</a></li>                    
+                    <li><a href="/results">Results</a></li>                    
+                </ul>
             </div>            
         </div>
     </nav>

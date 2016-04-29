@@ -7,8 +7,8 @@
     <ProjectGuid>{4FD7869B-7441-4B67-AEDB-960331FE9ECE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PingIt.WindowsService</RootNamespace>
-    <AssemblyName>PingIt.WindowsService</AssemblyName>
+    <RootNamespace>PingOwin.WindowsService</RootNamespace>
+    <AssemblyName>PingOwin.WindowsService</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -76,13 +76,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PingIt.Lib\PingIt.Lib.csproj">
+    <ProjectReference Include="..\PingOwin\PingOwin.csproj">
       <Project>{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}</Project>
-      <Name>PingIt.Lib</Name>
+      <Name>PingOwin</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PingIt.SQLite\PingIt.Store.SQLite.csproj">
+    <ProjectReference Include="..\PingOwin.Store.SQLite\PingOwin.Store.SQLite.csproj">
       <Project>{E3F78D62-CF74-466A-9DAD-0FC83F570FED}</Project>
-      <Name>PingIt.Store.SQLite</Name>
+      <Name>PingOwin.Store.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

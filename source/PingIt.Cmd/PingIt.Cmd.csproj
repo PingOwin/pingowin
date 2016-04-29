@@ -105,13 +105,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PingIt.Lib\PingIt.Lib.csproj">
+    <ProjectReference Include="..\PingOwin\PingOwin.csproj">
       <Project>{266b5055-a6e7-47d3-8c2b-93fb1bb6c282}</Project>
-      <Name>PingIt.Lib</Name>
+      <Name>PingOwin</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PingIt.SQLite\PingIt.Store.SQLite.csproj">
+    <ProjectReference Include="..\PingOwin.Store.SQLite\PingOwin.Store.SQLite.csproj">
       <Project>{E3F78D62-CF74-466A-9DAD-0FC83F570FED}</Project>
-      <Name>PingIt.Store.SQLite</Name>
+      <Name>PingOwin.Store.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

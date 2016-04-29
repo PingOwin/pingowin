@@ -24,7 +24,7 @@ namespace PingIt.Cmd
                 var pinger = new Pinger(new PingConfiguration());
                 var pingResults = pinger.PingUrls(urls).GetAwaiter().GetResult();
                 var output = transformer.Transform(pingResults);
-                outputter.SendToOutput(output);
+                outputter.SendToOutput(output).GetAwaiter().GetResult();
             }
         }
 

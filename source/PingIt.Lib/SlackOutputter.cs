@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace PingIt.Cmd
+namespace PingIt.Lib
 {
     public class SlackOutputter : IOutput
     {
@@ -12,7 +12,7 @@ namespace PingIt.Cmd
             _slackOutputConfig = slackOutputConfig;
         }
 
-        public Task Output(string text)
+        public Task SendToOutput(string text)
         {
             var token = _slackOutputConfig.Token;
             var channel = _slackOutputConfig.Channel;

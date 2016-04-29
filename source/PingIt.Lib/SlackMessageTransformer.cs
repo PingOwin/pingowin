@@ -1,15 +1,20 @@
-using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Text;
 
-namespace PingIt.Cmd
+namespace PingIt.Lib
 {
     public class SlackMessageTransformer : ITransformResponses
     {
+        private readonly Level _level;
+
+        public SlackMessageTransformer(Level level)
+        {
+            _level = level;
+        }
+
         public string Transform(IEnumerable<PingResponse> responses)
         {
-            var configuredLevel = (Level)Enum.Parse(typeof(Level), ConfigurationManager.AppSettings["level"]);
+            
             var sb = new StringBuilder();
             foreach (var response in responses)
             {
@@ -27,7 +32,7 @@ namespace PingIt.Cmd
                         break;
                 }
 
-                if (configuredLevel >= response.Level)
+                if (_level >= response.Level)
                 {
                     sb.AppendLine($"{text}");
                 }
@@ -47,9 +52,5 @@ namespace PingIt.Cmd
             return sb.ToString();
         }
 
-    }
-
-    public interface ITransformResponses
-    {
     }
 }

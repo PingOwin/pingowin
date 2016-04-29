@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PingIt.Cmd
+namespace PingIt.Lib
 {
     public interface ITransformResponses
     {

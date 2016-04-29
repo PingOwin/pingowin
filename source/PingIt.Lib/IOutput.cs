@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 
-namespace PingIt.Cmd
+namespace PingIt.Lib
 {
     public interface IOutput
     {
-        Task Output(string text);
+        Task SendToOutput(string text);
     }
 }

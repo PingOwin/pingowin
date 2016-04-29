@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace PingIt.Cmd
+namespace PingIt.Lib
 {
     public class PingTaskCreator
     {

@@ -1,5 +1,6 @@
 using System;
 using System.Configuration;
+using PingIt.Lib;
 
 namespace PingIt.Cmd
 {

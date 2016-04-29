@@ -1,4 +1,4 @@
-﻿namespace PingIt.Cmd
+﻿namespace PingIt.Lib
 {
     public class PingResponse
     {

@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
 
-namespace PingIt.Cmd
+namespace PingIt.Lib
 {
     public class ConsoleOutputter : IOutput
     {
-        public Task Output(string text)
+        public Task SendToOutput(string text)
         {
             Console.WriteLine(text);
             return Task.FromResult(0);

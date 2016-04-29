@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Linq;
+using PingIt.Lib;
 
 namespace PingIt.Cmd
 {
@@ -9,7 +10,7 @@ namespace PingIt.Cmd
         {
             var urlsCsv = ConfigurationManager.AppSettings["urls"];
             var urls = urlsCsv.Split(';');
-            var transformer = new SlackMessageTransformer();
+            var transformer = new SlackMessageTransformer(Level.OK);
 
             var outputter = CreateOutputter();
 
@@ -38,7 +39,7 @@ namespace PingIt.Cmd
 
         public static ITransformResponses CreateTransformer()
         {
-            return new SlackMessageTransformer();
+            return new SlackMessageTransformer(Level.OK);
         }
     }
 }

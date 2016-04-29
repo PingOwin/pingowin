@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-namespace PingIt.Cmd
+
+namespace PingIt.Lib
 {
     public class Pinger
     {

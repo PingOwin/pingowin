@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ConsoleOutputter.cs" />
     <Compile Include="IOutput.cs" />
+    <Compile Include="IPingConfiguration.cs" />
     <Compile Include="ISlackOutputConfig.cs" />
     <Compile Include="ITransformResponses.cs" />
     <Compile Include="Level.cs" />

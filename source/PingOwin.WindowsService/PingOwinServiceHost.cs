@@ -1,7 +1,9 @@
 using System;
 using System.Timers;
+using Microsoft.Owin.Hosting;
 using PingIt.Lib.Processing;
 using PingIt.Store.SQLite;
+using PingOwin.WindowsService;
 
 namespace PingIt.WindowsService
 {
@@ -25,7 +27,8 @@ namespace PingIt.WindowsService
         public void Start()
         {
             _migrator.Migrate();
-            //_webApp = WebApp.Start<SomeStuff>();
+            var optios = new StartOptions("http://localhost:1337");
+            _webApp = WebApp.Start<Startup>(optios);
             _timer.Start();
 
         }

@@ -14,9 +14,6 @@ namespace PingIt.Database
             migrator.Migrate();
 
             var repo = new TargetRepository(connectionString);
-
-            repo.Insert(new Target {Url = "http://www.aftenposten.no"}).Wait();
-
             var targets = repo.GetAll().GetAwaiter().GetResult();
 
             foreach (var target in targets)

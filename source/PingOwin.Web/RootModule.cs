@@ -12,21 +12,23 @@ namespace PingIt.Cmd.WebHost
             
             Get["/allpinguins"] = x =>
             {
-                var allPenguinsModel = new PenguinsModel();
-                var pengs = new List<SinglePenguin>();
-                pengs.Add(new SinglePenguin { Url = "https://www.aftenposten.no" });
+                var allPenguinsModel = new PingOwinsModel();
+                var pengs = new List<SinglePingOwin>
+                {
+                    new SinglePingOwin {Url = "https://www.aftenposten.no"}
+                };
                 allPenguinsModel.Penguins = pengs;
                 return View["AllPenguins.sshtml", allPenguinsModel];
             }; ;
         }
     }
 
-    public class PenguinsModel 
+    public class PingOwinsModel 
     {
-        public IEnumerable<SinglePenguin> Penguins { get; set; } 
+        public IEnumerable<SinglePingOwin> Penguins { get; set; } 
     }
 
-    public class SinglePenguin
+    public class SinglePingOwin
     {
         public string Url { get; set; }
     }

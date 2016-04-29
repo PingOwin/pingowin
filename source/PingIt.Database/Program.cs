@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PingIt.Store.SQLite;
 
 namespace PingIt.Database
@@ -17,33 +12,18 @@ namespace PingIt.Database
             var migrator = new Migrator(connectionString);
             migrator.Migrate();
 
+            var repo = new TargetRepository(connectionString);
 
-            using (var connection = CreateConnection(connectionString))
+            repo.Insert(new Target {Url = "http://www.aftenposten.no"}).Wait();
+
+            var targets = repo.GetAll().GetAwaiter().GetResult();
+
+            foreach (var target in targets)
             {
-                connection.Open();
-                Execute(connection, "INSERT INTO Targets (url) values ('http://www.aftenposten.no')");
-
-                var command = new SQLiteCommand("select * from Targets", connection);
-                var reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Console.WriteLine("{0} - {1}", reader["id"], reader["url"]);
-                }
+                Console.WriteLine("{0} - {1}", target.Id, target.Url);
             }
 
-
             Console.ReadKey();
-        }
-
-        private static void Execute(SQLiteConnection connection, string sql)
-        {
-            SQLiteCommand command = new SQLiteCommand(sql, connection);
-            command.ExecuteNonQuery();
-        }
-
-        private static SQLiteConnection CreateConnection(string connectionString)
-        {
-            return new SQLiteConnection(connectionString);
         }
     }
 }

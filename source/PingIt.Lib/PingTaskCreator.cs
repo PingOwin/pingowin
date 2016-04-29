@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -8,7 +7,14 @@ namespace PingIt.Lib
 {
     public class PingTaskCreator
     {
-        public static async Task<PingResponse> Ping(string url)
+        private readonly IPingConfiguration _pingConfiguration;
+
+        public PingTaskCreator(IPingConfiguration pingConfiguration)
+        {
+            _pingConfiguration = pingConfiguration;
+        }
+
+        public async Task<PingResponse> Ping(string url)
         {
             var canParse = Uri.IsWellFormedUriString(url, UriKind.Absolute);
             if (!canParse || string.IsNullOrEmpty(url))
@@ -18,8 +24,9 @@ namespace PingIt.Lib
 
             var httpClient = new HttpClient
             {
-                Timeout = new TimeSpan(0, 0, 0, 0, int.Parse(ConfigurationManager.AppSettings["timeoutInMs"]))
+                Timeout = _pingConfiguration.RequestTimeOut
             };
+
             var stopWatch = Stopwatch.StartNew();
             try
             {
@@ -31,18 +38,17 @@ namespace PingIt.Lib
                     return new PingResponse { Url = url, ResponseTime = stopWatch.ElapsedMilliseconds, Level = Level.Error, StatusCodeText = $"{(int)httpResponse.StatusCode} {httpResponse.StatusCode}" };
                 }
 
-                if (httpResponse.IsSuccessStatusCode && stopWatch.ElapsedMilliseconds > (long.Parse(ConfigurationManager.AppSettings["responsetime_threshold_inmillis"])))
+                if (httpResponse.IsSuccessStatusCode && stopWatch.ElapsedMilliseconds > _pingConfiguration.WarnThreshold)
                 {
-                    var text = $"Responsetime > {ConfigurationManager.AppSettings["responsetime_threshold_inmillis"]}ms";
+                    var text = $"Responsetime > {_pingConfiguration.WarnThreshold}ms";
                     return new PingResponse { Url = url, ResponseTime = stopWatch.ElapsedMilliseconds, ErrorMsg = text, Level = Level.Warn, StatusCodeText = $"{(int)httpResponse.StatusCode} {httpResponse.StatusCode}" };
                 }
 
                 return new PingResponse { Url = url, ResponseTime = stopWatch.ElapsedMilliseconds, Level = Level.OK, StatusCodeText = $"{(int)httpResponse.StatusCode} {httpResponse.StatusCode}" };
             }
-            catch (TaskCanceledException e)
+            catch (TaskCanceledException)
             {
-                var timeoutinms = ConfigurationManager.AppSettings["timeoutInMs"];
-                return new PingResponse { Url = url, ResponseTime = stopWatch.ElapsedMilliseconds, ErrorMsg = $"Request took longer than timeout of {timeoutinms}ms. Cancelled.", Level = Level.Error };
+                return new PingResponse { Url = url, ResponseTime = stopWatch.ElapsedMilliseconds, ErrorMsg = $"Request took longer than timeout of {_pingConfiguration.RequestTimeOut}ms. Cancelled.", Level = Level.Error };
             }
             catch (HttpRequestException e)
             {

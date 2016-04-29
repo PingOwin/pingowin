@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PingIt.Cmd
 {
-    public class SlackMessageTransformer
+    public class SlackMessageTransformer : ITransformResponses
     {
         public string Transform(IEnumerable<PingResponse> responses)
         {
@@ -47,5 +47,9 @@ namespace PingIt.Cmd
             return sb.ToString();
         }
 
+    }
+
+    public interface ITransformResponses
+    {
     }
 }

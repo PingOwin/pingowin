@@ -10,29 +10,35 @@ namespace PingIt.Cmd
             var urlsCsv = ConfigurationManager.AppSettings["urls"];
             var urls = urlsCsv.Split(';');
             var transformer = new SlackMessageTransformer();
-            var outputter = Create();
+
+            var outputter = CreateOutputter();
 
             if (args.Length >= 1 && args.First() == "debug")
             {
                 var debugInfo = transformer.TransformDebugInfo(urls);
-                outputter.Output(debugInfo);
+                outputter.SendToOutput(debugInfo);
             }
             else
             {
                 var pinger = new Pinger();
                 var pingResults = pinger.PingUrls(urls).GetAwaiter().GetResult();
                 var output = transformer.Transform(pingResults);
-                outputter.Output(output);
+                outputter.SendToOutput(output);
             }
         }
 
-        public static IOutput Create()
+        public static IOutput CreateOutputter()
         {
             if (ConfigurationManager.AppSettings["output"] == "1")
             {
                 return new SlackOutputter(new SlackOutputConfig());
             }
             return new ConsoleOutputter();
+        }
+
+        public static ITransformResponses CreateTransformer()
+        {
+            return new SlackMessageTransformer();
         }
     }
 }

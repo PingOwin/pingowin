@@ -9,14 +9,16 @@ namespace PingIt.WindowsService
     {
         private readonly Migrator _migrator;
         private IDisposable _webApp = null;
-        private PenguinProcessor _penguinProcessor;
-        private Timer _timer;
+        private readonly PenguinProcessor _penguinProcessor;
+        private readonly Timer _timer;
+        private ConfigFileSettings _settings;
 
         public PingOwinServiceHost()
         {
-            _migrator = new Migrator(new ConfigFileSettings());
+            _settings = new ConfigFileSettings();
+            _migrator = new Migrator(_settings);
             _penguinProcessor = new PenguinProcessor();
-            _timer = new Timer(5000);
+            _timer = new Timer(_settings.TickInterval);
             _timer.Elapsed += (sender, args) => _penguinProcessor.Tick();
         }
 

@@ -45,7 +45,7 @@
     <Compile Include="IOutput.cs" />
     <Compile Include="IPingConfiguration.cs" />
     <Compile Include="ISlackOutputConfig.cs" />
-    <Compile Include="ITargetRepository.cs" />
+    <Compile Include="IPenguinRepository.cs" />
     <Compile Include="ITransformResponses.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Pinger.cs" />
@@ -54,7 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SlackMessageTransformer.cs" />
     <Compile Include="SlackOutputter.cs" />
-    <Compile Include="Target.cs" />
+    <Compile Include="Penguin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

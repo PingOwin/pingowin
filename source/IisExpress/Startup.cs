@@ -15,15 +15,7 @@ namespace IisExpress
         public void Configuration(IAppBuilder app)
         {
 
-            app.UsePingOwinFrontend(new IisHackToLookupViewsBootstrapper());
-        }
-    }
-
-    public class IisHackToLookupViewsBootstrapper : DefaultNancyBootstrapper
-    {
-        protected override void ApplicationStartup(TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
-        {
-            Conventions.ViewLocationConventions.Add((viewName, model, context) => string.Concat("bin/views/", viewName));
+            app.UsePingOwinFrontend(hack: true);
         }
     }
 }

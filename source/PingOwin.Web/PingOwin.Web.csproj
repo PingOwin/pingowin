@@ -57,7 +57,7 @@
     <Compile Include="RootModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="views\AllPenguins.sshtml">
+    <Content Include="views\AllPingowins.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

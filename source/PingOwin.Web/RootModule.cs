@@ -18,7 +18,7 @@ namespace PingIt.Cmd.WebHost
                     new SinglePingOwin {Url = "https://www.aftenposten.no"}
                 };
                 allPenguinsModel.Penguins = pengs;
-                return View["AllPenguins.sshtml", allPenguinsModel];
+                return View["AllPingowins.sshtml", allPenguinsModel];
             }; ;
         }
     }

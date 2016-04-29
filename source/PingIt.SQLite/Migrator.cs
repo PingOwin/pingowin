@@ -12,9 +12,9 @@ namespace PingIt.Store.SQLite
     {
         private readonly string _connectionString;
 
-        public Migrator(string connectionString)
+        public Migrator(IDatabaseSettings settings)
         {
-            _connectionString = connectionString;
+            _connectionString = settings.ConnectionString;
         }
 
         public void Migrate()

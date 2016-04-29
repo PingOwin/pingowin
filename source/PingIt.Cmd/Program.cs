@@ -7,11 +7,12 @@ namespace PingIt.Cmd
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
-            var repo = new TargetRepository(connectionString);
-            new Migrator(connectionString).Migrate();
+            var pingConfiguration = new PingConfiguration();
+            var repo = new PenguinRepository(pingConfiguration);
+            new Migrator(pingConfiguration).Migrate();
             var urls = repo.GetAll().GetAwaiter().GetResult().Select(c => c.Url);
             var transformer = new SlackMessageTransformer(Level.OK);
 
@@ -24,7 +25,8 @@ namespace PingIt.Cmd
             }
             else
             {
-                var pinger = new Pinger(new PingConfiguration());
+               
+                var pinger = new Pinger(pingConfiguration);
                 var pingResults = pinger.PingUrls(urls).GetAwaiter().GetResult();
                 var output = transformer.Transform(pingResults);
                 outputter.SendToOutput(output).GetAwaiter().GetResult();

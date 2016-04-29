@@ -1,10 +1,11 @@
 using System;
 using System.Configuration;
 using PingIt.Lib;
+using PingIt.Store.SQLite;
 
 namespace PingIt.Cmd
 {
-    public class PingConfiguration : IPingConfiguration
+    public class PingConfiguration : IPingConfiguration, IDatabaseSettings
     {
         public TimeSpan RequestTimeOut
         {
@@ -19,5 +20,7 @@ namespace PingIt.Cmd
         {
             get { return long.Parse(ConfigurationManager.AppSettings["responsetime_threshold_inmillis"]); }
         }
+
+        public string ConnectionString => ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
     }
 }

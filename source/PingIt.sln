@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingIt.Store.SQLite", "Ping
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingIt.Cmd.WebHost", "PingIt.Cmd.WebHost\PingIt.Cmd.WebHost.csproj", "{FE6A96A1-968D-4238-82C0-92854F809D9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingIt.WindowsService", "PingIt.WindowsService\PingIt.WindowsService.csproj", "{4FD7869B-7441-4B67-AEDB-960331FE9ECE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FE6A96A1-968D-4238-82C0-92854F809D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE6A96A1-968D-4238-82C0-92854F809D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE6A96A1-968D-4238-82C0-92854F809D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FD7869B-7441-4B67-AEDB-960331FE9ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FD7869B-7441-4B67-AEDB-960331FE9ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FD7869B-7441-4B67-AEDB-960331FE9ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FD7869B-7441-4B67-AEDB-960331FE9ECE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

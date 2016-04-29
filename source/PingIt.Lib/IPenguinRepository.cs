@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PingIt.Lib
 {
-    public interface ITargetRepository
+    public interface IPenguinRepository
     {
-        Task<IEnumerable<Target>> GetAll();
-        Task<bool> Insert(Target target);
+        Task<IEnumerable<Penguin>> GetAll();
+        Task<bool> Insert(Penguin target);
     }
 }

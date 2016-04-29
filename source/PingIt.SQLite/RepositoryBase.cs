@@ -8,9 +8,9 @@ namespace PingIt.Store.SQLite
     {
         private readonly string _connectionString;
 
-        protected RepositoryBase(string connectionString)
+        protected RepositoryBase(IDatabaseSettings settings)
         {
-            _connectionString = connectionString;
+            _connectionString = settings.ConnectionString;
         }
 
         protected TReturn Run<TReturn>(Func<IDbConnection, TReturn> getter)

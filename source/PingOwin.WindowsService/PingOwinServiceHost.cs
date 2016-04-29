@@ -27,8 +27,12 @@ namespace PingIt.WindowsService
         public void Start()
         {
             _migrator.Migrate();
-            var optios = new StartOptions("http://localhost:1337");
-            _webApp = WebApp.Start<Startup>(optios);
+            
+            var options = new StartOptions("http://localhost:1338")
+            {
+                ServerFactory = "Microsoft.Owin.Host.HttpListener"
+            };
+            _webApp = WebApp.Start<Startup>(options);
             _timer.Start();
 
         }

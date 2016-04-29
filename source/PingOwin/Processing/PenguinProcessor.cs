@@ -20,14 +20,22 @@ namespace PingIt.Lib.Processing
         public void Tick()
         {
             var penguins = _repo.GetAll().GetAwaiter().GetResult();
-            var urls = penguins.Select(c => c.Url);
-            var responses = _pinger.PingUrls(urls).GetAwaiter().GetResult();
+            var urls = penguins.Where(c => c != null && !string.IsNullOrEmpty(c.Url)).Select(c => c.Url);
+            if (urls != null)
+            {
+                var responses = _pinger.PingUrls(urls).GetAwaiter().GetResult();
 
-            //TODO: store responses to db
+                //TODO: store responses to db
 
 
-            var transformedMsg = _transformer.Transform(responses);
-            _log.Information(transformedMsg);
+                var transformedMsg = _transformer.Transform(responses);
+                _log.Information(transformedMsg);
+            }
+            else
+            {
+                _log.Information("null?!");
+            }
+
         }
     }
 }

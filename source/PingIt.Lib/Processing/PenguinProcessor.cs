@@ -1,12 +1,15 @@
 ﻿using System;
+using Serilog;
 
 namespace PingIt.Lib.Processing
 {
     public class PenguinProcessor
     {
+        private readonly ILogger _log = Log.ForContext<PenguinProcessor>();
+
         public void Tick()
         {
-            Console.WriteLine("Here I am");
+            _log.Information("Here I Am");
         }
     }
 }

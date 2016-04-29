@@ -1,5 +1,7 @@
 ﻿using System;
 using PingIt.Store.SQLite;
+using Serilog;
+using Serilog.Core;
 using Topshelf;
 
 namespace PingIt.WindowsService
@@ -8,9 +10,14 @@ namespace PingIt.WindowsService
     {
         static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.ColoredConsole(outputTemplate: "{Timestamp:G} [{Level}] {SourceContext} {Message}{NewLine:l}{Exception:l}")
+                .MinimumLevel.Debug()
+                .CreateLogger();
 
             HostFactory.Run(x =>
             {
+                x.UseSerilog();
                 x.Service<PingOwinServiceHost>(s =>
                 {
                     s.ConstructUsing(name => new PingOwinServiceHost()); //kernel.get?

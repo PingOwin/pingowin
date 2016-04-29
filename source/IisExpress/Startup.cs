@@ -14,8 +14,7 @@ namespace IisExpress
     {
         public void Configuration(IAppBuilder app)
         {
-
-            app.UsePingOwinFrontend(hack: true);
+            app.UsePingOwinFrontend();
         }
     }
 }

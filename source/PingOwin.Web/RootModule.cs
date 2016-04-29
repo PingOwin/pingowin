@@ -1,34 +1,34 @@
 using System.Collections.Generic;
+using System.Linq;
 using Nancy;
 using Nancy.Responses;
+using PingIt.Lib;
 
 namespace PingIt.Cmd.WebHost
 {
     public class RootModule : NancyModule
     {
-        public RootModule()
+        private readonly IPenguinRepository _penguinRepository;
+
+        public RootModule(IPenguinRepository penguinRepository)
         {
             Get["/"] = x => new RedirectResponse("/pingowins", RedirectResponse.RedirectType.Temporary);
             
-            Get["/pingowins"] = x =>
+            Get["/pingowins", true] = async (x, t) =>
             {
+                var all = await penguinRepository.GetAll();
                 var allPenguinsModel = new PingOwinsModel();
-                var pengs = new List<SinglePingOwin>
-                {
-                    new SinglePingOwin {Url = "https://www.aftenposten.no"}
-                };
+                var pengs = all.Select(c => new SinglePingOwin {Url = c.Url});
                 allPenguinsModel.Penguins = pengs;
                 return View["AllPingowins.sshtml", allPenguinsModel];
             };
 
-            Get["/results"] = x =>
+            Get["/results", true] = async (x,t) =>
             {
-                var allResults = new PingResultsModel();
-                var pengs = new List<SingleResult>
-                {
-                    new SingleResult {Url = "https://www.aftenposten.no"}
-                };
-                allResults.Results = pengs;
+                var allResults = await penguinRepository.GetAll();
+                var resultsModel = new PingResultsModel();
+                var results = allResults.Select(c =>  new SingleResult {Url = c.Url});
+                resultsModel.Results = results;
                 return View["Results.sshtml", allResults];
             };
         }

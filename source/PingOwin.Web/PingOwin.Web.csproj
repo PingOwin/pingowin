@@ -43,6 +43,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,7 +69,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="views\Results.sshtml" />
+    <Content Include="views\Results.sshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PingOwin.Store.SQLite\PingOwin.Store.SQLite.csproj">
+      <Project>{E3F78D62-CF74-466A-9DAD-0FC83F570FED}</Project>
+      <Name>PingOwin.Store.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PingOwin\PingOwin.csproj">
+      <Project>{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}</Project>
+      <Name>PingOwin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

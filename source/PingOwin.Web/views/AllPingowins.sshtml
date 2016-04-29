@@ -1,11 +1,11 @@
 ﻿@Master['MasterPage.sshtml']
 @Section['Content']
-    <div class="row" style="margin-top:50px;">
+    <div class="row">
         <div class="col-md-12">
             <h2>Registered pingowins:</h2>
             <ul>
                 @Each.Penguins
-                <li>@Current.Url</li>
+                    <li>@Current.Url</li>
                 @EndEach
             </ul>
         </div>

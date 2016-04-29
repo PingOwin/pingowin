@@ -10,25 +10,29 @@ namespace ExternalPinger
         {
             var urlsCsv = ConfigurationManager.AppSettings["urls"];
             var urls = urlsCsv.Split(';');
-            var reporter = Create();
+            var transformer = new SlackMessageTransformer();
+            var outputter = Create();
+
             if (args.Length >= 1 && args.First() == "debug")
             {
-                reporter.ReportDebugToSlack(urls);
+                var debugInfo = transformer.TransformDebugInfo(urls);
+                outputter.Output(debugInfo);
             }
             else
             {
                 var pingResults = Pinger.PingUrls(urls);
-                reporter.ReportToSlack(pingResults);
+                var output = transformer.Transform(pingResults);
+                outputter.Output(output);
             }
         }
 
-        public static SlackReporter Create()
+        public static IOutput Create()
         {
             if (ConfigurationManager.AppSettings["output"] == "1")
             {
-                return new SlackReporter(new SlackOutputter());
+                return new SlackOutputter();
             }
-            return new SlackReporter(new ConsoleOutputter());
+            return new ConsoleOutputter();
         }
     }
 }

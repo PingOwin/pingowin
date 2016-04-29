@@ -21,6 +21,5 @@ namespace PingIt.Store.SQLite
             string sql = @"INSERT INTO Penguins(url) VALUES(@Url)";
             return (await Run(con => con.ExecuteScalarAsync<int>(sql, target))) == 1;
         }
-
     }
 }

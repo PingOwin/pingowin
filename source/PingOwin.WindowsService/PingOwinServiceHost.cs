@@ -1,6 +1,7 @@
 using System;
 using System.Timers;
 using Microsoft.Owin.Hosting;
+using PingIt.Lib;
 using PingIt.Lib.Processing;
 using PingIt.Store.SQLite;
 using PingOwin.WindowsService;
@@ -19,7 +20,8 @@ namespace PingIt.WindowsService
         {
             _settings = new ConfigFileSettings();
             _migrator = new Migrator(_settings);
-            _penguinProcessor = new PenguinProcessor(new PingConfiguration(),new PenguinRepository(new PingConfiguration()));
+            var pingConfiguration = new PingConfiguration();
+            _penguinProcessor = new PenguinProcessor(new Pinger(pingConfiguration), new PenguinRepository(pingConfiguration), new PenguinResultsRepository(pingConfiguration));
             _timer = new Timer(_settings.TickInterval);
             _timer.Elapsed += (sender, args) => _penguinProcessor.Tick();
         }

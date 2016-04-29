@@ -3,15 +3,18 @@ using System.Linq;
 using Nancy;
 using Nancy.Responses;
 using PingIt.Lib;
+using PingOwin;
 
 namespace PingIt.Cmd.WebHost
 {
     public class RootModule : NancyModule
     {
+        private readonly IPenguinResultsRepository _resultsRepo;
         private readonly IPenguinRepository _penguinRepository;
 
-        public RootModule(IPenguinRepository penguinRepository)
+        public RootModule(IPenguinRepository penguinRepository, IPenguinResultsRepository resultsRepo)
         {
+            _resultsRepo = resultsRepo;
             Get["/"] = x => new RedirectResponse("/pingowins", RedirectResponse.RedirectType.Temporary);
             
             Get["/pingowins", true] = async (x, t) =>
@@ -25,9 +28,9 @@ namespace PingIt.Cmd.WebHost
 
             Get["/results", true] = async (x,t) =>
             {
-                var allResults = await penguinRepository.GetAll();
+                var allResults = await _resultsRepo.GetAll();
                 var resultsModel = new PingResultsModel();
-                var results = allResults.Select(c =>  new SingleResult {Url = c.Url});
+                var results = allResults.Select(c =>  new SingleResult {Url = c.Url, ResponseTime = c.ResponseTime.ToString()});
                 resultsModel.Results = results;
                 return View["Results.sshtml", resultsModel];
             };
@@ -51,5 +54,6 @@ namespace PingIt.Cmd.WebHost
     public class SingleResult
     {
         public string Url { get; set; }
+        public string ResponseTime { get; set; }
     }
 }

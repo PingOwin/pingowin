@@ -5,7 +5,7 @@
         <h2>Results:</h2>
         <ul>
             @Each.Results
-            <li>@Current.Url</li>
+            <li>@Current.Url [@Current.ResponseTime ms]</li>
             @EndEach
         </ul>
     </div>

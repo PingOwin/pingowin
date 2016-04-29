@@ -8,7 +8,14 @@ namespace PingIt.Cmd
 {
     public class SlackReporter
     {
-        public static void ReportToSlack(IEnumerable<PingResponse> responses)
+        private readonly IOutput _outputter;
+
+        public SlackReporter(IOutput outputter)
+        {
+            _outputter = outputter;
+        }
+
+        public void ReportToSlack(IEnumerable<PingResponse> responses)
         {
             var configuredLevel = (Level)Enum.Parse(typeof(Level), ConfigurationManager.AppSettings["level"]);
             var sb = new StringBuilder();
@@ -38,11 +45,11 @@ namespace PingIt.Cmd
             var textToReport = sb.ToString();
             if (!string.IsNullOrEmpty(textToReport))
             {
-                Report(textToReport);
+                _outputter.Output(textToReport);
             }
         }
 
-        public static void ReportDebugToSlack(string[] urls)
+        public void ReportDebugToSlack(string[] urls)
         {
             var sb = new StringBuilder();
             sb.AppendLine("```");
@@ -51,27 +58,36 @@ namespace PingIt.Cmd
                 sb.AppendLine($"{url}");
             }
             sb.AppendLine("```");
-            Report(sb.ToString());
+            _outputter.Output(sb.ToString());
         }
 
-        public static void Report(string text)
+
+    }
+
+    public interface IOutput
+    {
+        void Output(string text);
+    }
+
+    public class SlackOutputter : IOutput
+    {
+        public void Output(string text)
         {
             var slack = new HttpClient();
             var token = ConfigurationManager.AppSettings["token"];
             var channel = ConfigurationManager.AppSettings["channel"];
             var iconUrl = ConfigurationManager.AppSettings["icon_url"];
             var username = Environment.MachineName;
-
             var slackUri = $"https://slack.com/api/chat.postMessage?token={token}&channel={channel}&text={text}&username={username}&icon_url={iconUrl}";
+            slack.PostAsync(slackUri, null).GetAwaiter().GetResult();
+        }
+    }
 
-            if (ConfigurationManager.AppSettings["output"] == "1")
-            {
-                slack.PostAsync(slackUri, null).GetAwaiter().GetResult();
-            }
-            else
-            {
-                Console.WriteLine(text);
-            }
+    public class ConsoleOutputter : IOutput
+    {
+        public void Output(string text)
+        {
+            Console.WriteLine(text);
         }
     }
 }

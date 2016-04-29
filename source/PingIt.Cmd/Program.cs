@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics;
+﻿using System.Configuration;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using PingIt.Cmd;
 
 namespace ExternalPinger
@@ -16,16 +10,25 @@ namespace ExternalPinger
         {
             var urlsCsv = ConfigurationManager.AppSettings["urls"];
             var urls = urlsCsv.Split(';');
-
+            var reporter = Create();
             if (args.Length >= 1 && args.First() == "debug")
             {
-                SlackReporter.ReportDebugToSlack(urls);
+                reporter.ReportDebugToSlack(urls);
             }
             else
             {
                 var pingResults = Pinger.PingUrls(urls);
-                SlackReporter.ReportToSlack(pingResults);
+                reporter.ReportToSlack(pingResults);
             }
+        }
+
+        public static SlackReporter Create()
+        {
+            if (ConfigurationManager.AppSettings["output"] == "1")
+            {
+                return new SlackReporter(new SlackOutputter());
+            }
+            return new SlackReporter(new ConsoleOutputter());
         }
     }
 }

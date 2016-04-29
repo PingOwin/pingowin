@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Dapper;
 using PingIt.Lib;
+using PingOwin;
 
 namespace PingIt.Store.SQLite
 {

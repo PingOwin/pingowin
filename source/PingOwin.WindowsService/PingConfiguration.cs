@@ -1,10 +1,9 @@
 using System;
 using System.Configuration;
 using PingIt.Lib;
-using PingIt.Store.SQLite;
 using PingOwin;
 
-namespace PingIt.Cmd
+namespace PingIt.WindowsService
 {
     public class PingConfiguration : IPingConfiguration, IDatabaseSettings
     {

@@ -19,7 +19,7 @@ namespace PingIt.WindowsService
         {
             _settings = new ConfigFileSettings();
             _migrator = new Migrator(_settings);
-            _penguinProcessor = new PenguinProcessor();
+            _penguinProcessor = new PenguinProcessor(new PingConfiguration(),new PenguinRepository(new PingConfiguration()));
             _timer = new Timer(_settings.TickInterval);
             _timer.Elapsed += (sender, args) => _penguinProcessor.Tick();
         }

@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigFileSettings.cs" />
+    <Compile Include="PingConfiguration.cs" />
     <Compile Include="PingOwinServiceHost.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,4 @@
-﻿namespace PingIt.Store.SQLite
+﻿namespace PingOwin
 {
     public interface IDatabaseSettings
     {

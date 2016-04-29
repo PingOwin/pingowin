@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using PingIt.Store.SQLite;
+using PingOwin;
 
 namespace PingIt.WindowsService
 {

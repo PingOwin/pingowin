@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleOutputter.cs" />
+    <Compile Include="IDatabaseSettings.cs" />
     <Compile Include="IOutput.cs" />
     <Compile Include="IPingConfiguration.cs" />
     <Compile Include="ISlackOutputConfig.cs" />

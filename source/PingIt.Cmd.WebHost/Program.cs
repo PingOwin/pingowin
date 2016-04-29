@@ -7,8 +7,6 @@ namespace PingIt.Cmd.WebHost
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             var config = new HostConfiguration {};
@@ -22,17 +20,6 @@ namespace PingIt.Cmd.WebHost
                 Console.WriteLine("Running on http://localhost:1337");
                 Console.ReadLine();
             }
-        }
-    }
-
-    public class RootModule : NancyModule
-    {
-        public RootModule()
-        {
-            Get["/"] = x =>
-            {
-                return "hello world!";
-            };
         }
     }
 }

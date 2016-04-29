@@ -1,0 +1,12 @@
+﻿@Master['MasterPage.sshtml']
+
+@Section['Content']
+   
+    <ul>
+        @Each.Penguins
+        <li>@Current.Url</li>
+        @EndEach    
+    </ul>
+    
+    
+@EndSection

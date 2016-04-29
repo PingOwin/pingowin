@@ -35,7 +35,7 @@ namespace PingIt.Cmd
             return sb.ToString();
         }
 
-        public string ReportDebugToSlack(string[] urls)
+        public string TransformDebugInfo(string[] urls)
         {
             var sb = new StringBuilder();
             sb.AppendLine("```");

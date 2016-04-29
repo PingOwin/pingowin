@@ -1,8 +1,7 @@
 ﻿using System.Configuration;
 using System.Linq;
-using PingIt.Cmd;
 
-namespace ExternalPinger
+namespace PingIt.Cmd
 {
     class Program
     {
@@ -20,7 +19,8 @@ namespace ExternalPinger
             }
             else
             {
-                var pingResults = Pinger.PingUrls(urls);
+                var pinger = new Pinger();
+                var pingResults = pinger.PingUrls(urls).GetAwaiter().GetResult();
                 var output = transformer.Transform(pingResults);
                 outputter.Output(output);
             }
@@ -30,7 +30,7 @@ namespace ExternalPinger
         {
             if (ConfigurationManager.AppSettings["output"] == "1")
             {
-                return new SlackOutputter();
+                return new SlackOutputter(new SlackOutputConfig());
             }
             return new ConsoleOutputter();
         }

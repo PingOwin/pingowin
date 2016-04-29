@@ -75,13 +75,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleOutputter.cs" />
+    <Compile Include="IOutput.cs" />
+    <Compile Include="ISlackOutputConfig.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Pinger.cs" />
     <Compile Include="PingResponse.cs" />
     <Compile Include="PingTaskCreator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlackReporter.cs" />
+    <Compile Include="SlackMessageTransformer.cs" />
+    <Compile Include="SlackOutputConfig.cs" />
+    <Compile Include="SlackOutputter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

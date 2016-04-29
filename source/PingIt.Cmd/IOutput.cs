@@ -1,7 +1,9 @@
+using System.Threading.Tasks;
+
 namespace PingIt.Cmd
 {
     public interface IOutput
     {
-        void Output(string text);
+        Task Output(string text);
     }
 }

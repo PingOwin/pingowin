@@ -54,7 +54,7 @@ namespace PingIt.Cmd
             }
         }
 
-        public static PingResponse ExceptionResponse(string url, string e, long elapsed)
+        private static PingResponse ExceptionResponse(string url, string e, long elapsed)
         {
             var error = e.Length > 300 ? e.Substring(0, 300) + " ... " : e;
             return new PingResponse { Url = url, ResponseTime = elapsed, ErrorMsg = error, Level = Level.Error };

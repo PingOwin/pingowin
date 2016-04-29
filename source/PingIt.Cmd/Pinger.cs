@@ -5,10 +5,10 @@ namespace PingIt.Cmd
 {
     public class Pinger
     {
-        public static IEnumerable<PingResponse> PingUrls(string[] urls)
+        public async Task<IEnumerable<PingResponse>> PingUrls(string[] urls)
         {
             var pingTasks = (from url in urls select PingTaskCreator.Ping(url)).ToList();
-            var pingResults = Task.WhenAll(pingTasks).GetAwaiter().GetResult().ToList();
+            var pingResults = await Task.WhenAll(pingTasks);
             var orderedByLevel = pingResults.OrderBy(c => c.Level);
             return orderedByLevel;
         }

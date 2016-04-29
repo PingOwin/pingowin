@@ -29,7 +29,7 @@ namespace PingIt.Cmd.WebHost
                 var resultsModel = new PingResultsModel();
                 var results = allResults.Select(c =>  new SingleResult {Url = c.Url});
                 resultsModel.Results = results;
-                return View["Results.sshtml", allResults];
+                return View["Results.sshtml", resultsModel];
             };
         }
     }

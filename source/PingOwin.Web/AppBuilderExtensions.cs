@@ -1,14 +1,19 @@
 ﻿using Nancy;
+using Nancy.Owin;
 using Owin;
 
 namespace PingOwin.Web
 {
     public static class AppBuilderExtensions
     {
-        public static IAppBuilder UsePingOwinFrontend(this IAppBuilder appBuilder)
+        public static IAppBuilder UsePingOwinFrontend(this IAppBuilder appBuilder, DefaultNancyBootstrapper bootstrapper = null)
         {
             StaticConfiguration.DisableErrorTraces = false;
-            appBuilder.UseNancy();
+            NancyOptions conf = new NancyOptions
+            {
+                Bootstrapper = bootstrapper ?? new DefaultNancyBootstrapper()
+            };
+            appBuilder.UseNancy(conf);
             return appBuilder;
         }
 

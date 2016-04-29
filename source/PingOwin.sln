@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingOwin.WindowsService", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingOwin.Web", "PingOwin.Web\PingOwin.Web.csproj", "{91C65E60-629F-4A05-9786-C1BF9CAA34B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IisExpress", "IisExpress\IisExpress.csproj", "{93A80B5E-685E-424C-A4EF-2EF74B5C7CCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{91C65E60-629F-4A05-9786-C1BF9CAA34B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91C65E60-629F-4A05-9786-C1BF9CAA34B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91C65E60-629F-4A05-9786-C1BF9CAA34B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93A80B5E-685E-424C-A4EF-2EF74B5C7CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93A80B5E-685E-424C-A4EF-2EF74B5C7CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93A80B5E-685E-424C-A4EF-2EF74B5C7CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93A80B5E-685E-424C-A4EF-2EF74B5C7CCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

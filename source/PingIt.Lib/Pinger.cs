@@ -13,7 +13,7 @@ namespace PingIt.Lib
             _pingtaskCreator = new PingTaskCreator(config);
         }
 
-        public async Task<IEnumerable<PingResponse>> PingUrls(string[] urls)
+        public async Task<IEnumerable<PingResponse>> PingUrls(IEnumerable<string> urls)
         {
             var pingTasks = (from url in urls select _pingtaskCreator.Ping(url)).ToList();
             var pingResults = await Task.WhenAll(pingTasks);

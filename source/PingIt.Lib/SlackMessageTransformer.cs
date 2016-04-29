@@ -40,7 +40,7 @@ namespace PingIt.Lib
             return sb.ToString();
         }
 
-        public string TransformDebugInfo(string[] urls)
+        public string TransformDebugInfo(IEnumerable<string> urls)
         {
             var sb = new StringBuilder();
             sb.AppendLine("```");

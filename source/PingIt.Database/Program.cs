@@ -1,4 +1,5 @@
 ﻿using System;
+using PingIt.Lib;
 using PingIt.Store.SQLite;
 
 namespace PingIt.Database
@@ -7,7 +8,7 @@ namespace PingIt.Database
     {
         static void Main(string[] args)
         {
-            var connectionString = "Data Source=mydb.db;Version=3;Pooling=True;Max Pool Size=100;";
+            var connectionString = "Data Source=C:\\temp\\mydb.db;Version=3;Pooling=True;Max Pool Size=100;";
 
             var migrator = new Migrator(connectionString);
             migrator.Migrate();

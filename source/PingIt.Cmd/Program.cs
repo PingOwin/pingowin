@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Linq;
 using PingIt.Lib;
+using PingIt.Store.SQLite;
 
 namespace PingIt.Cmd
 {
@@ -8,8 +9,10 @@ namespace PingIt.Cmd
     {
         static void Main(string[] args)
         {
-            var urlsCsv = ConfigurationManager.AppSettings["urls"];
-            var urls = urlsCsv.Split(';');
+            var connectionString = ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+            var repo = new TargetRepository(connectionString);
+            new Migrator(connectionString).Migrate();
+            var urls = repo.GetAll().GetAwaiter().GetResult().Select(c => c.Url);
             var transformer = new SlackMessageTransformer(Level.OK);
 
             var outputter = CreateOutputter();

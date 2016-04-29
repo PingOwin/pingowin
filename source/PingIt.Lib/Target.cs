@@ -1,4 +1,4 @@
-﻿namespace PingIt.Store.SQLite
+﻿namespace PingIt.Lib
 {
     public class Target
     {

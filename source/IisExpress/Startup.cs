@@ -1,4 +1,6 @@
 ﻿using System;
+
+using System.Data.SQLite;
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Nancy;
@@ -14,6 +16,8 @@ namespace IisExpress
     {
         public void Configuration(IAppBuilder app)
         {
+            var cmd = new SQLiteCommand();
+            cmd.CommandText = "This is adummy";
             app.UsePingOwinFrontend();
         }
     }

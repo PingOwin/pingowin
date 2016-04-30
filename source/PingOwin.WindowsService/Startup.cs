@@ -10,7 +10,7 @@ namespace PingOwin.WindowsService
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UsePingOwinFrontend();
+            app.UsePingOwinFrontend(null);
         }
     }
 }

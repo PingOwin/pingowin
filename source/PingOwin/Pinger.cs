@@ -17,7 +17,7 @@ namespace PingIt.Lib
         {
             var pingTasks = (from url in urls select _pingtaskCreator.Ping(url)).ToList();
             var pingResults = await Task.WhenAll(pingTasks);
-            var orderedByLevel = pingResults.OrderBy(c => c.Level);
+            var orderedByLevel = pingResults.Where(c => c != null).OrderBy(c => c.Level);
             return orderedByLevel;
         }
     }

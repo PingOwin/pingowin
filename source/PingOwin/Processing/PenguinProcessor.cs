@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using PingOwin;
 using Serilog;
 
@@ -21,29 +22,22 @@ namespace PingIt.Lib.Processing
             _transformer = new SlackMessageTransformer(Level.OK);
         }
 
-        public void Tick()
+        public async Task Tick()
         {
             var penguins = _repo.GetAll().GetAwaiter().GetResult();
             var urls = penguins.Where(c => c != null && !string.IsNullOrEmpty(c.Url)).Select(c => c.Url);
-            if (urls != null)
-            {
-                var responses = _pinger.PingUrls(urls).GetAwaiter().GetResult();
+            var responses = await _pinger.PingUrls(urls);
 
-                foreach (var result in responses)
-                {
-                    _penguinResultsRepository.Insert(new PenguinResult
-                    {
-                        Url = result.Url,
-                        ResponseTime = (int) result.ResponseTime
-                    });
-                }
-                var transformedMsg = _transformer.Transform(responses);
-                _log.Information(transformedMsg);
-            }
-            else
+            foreach (var result in responses)
             {
-                _log.Information("null?!");
+                await _penguinResultsRepository.Insert(new PenguinResult
+                {
+                    Url = result.Url,
+                    ResponseTime = (int)result.ResponseTime
+                });
             }
+            var transformedMsg = _transformer.Transform(responses);
+            _log.Information(transformedMsg);
 
         }
     }

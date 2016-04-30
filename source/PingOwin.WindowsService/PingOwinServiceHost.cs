@@ -12,7 +12,7 @@ namespace PingIt.WindowsService
     {
         private readonly Migrator _migrator;
         private IDisposable _webApp = null;
-        private readonly PenguinProcessor _penguinProcessor;
+        private PenguinProcessor _penguinProcessor;
         private readonly Timer _timer;
         private ConfigFileSettings _settings;
 
@@ -20,10 +20,16 @@ namespace PingIt.WindowsService
         {
             _settings = new ConfigFileSettings();
             _migrator = new Migrator(_settings);
-            var pingConfiguration = new PingConfiguration();
-            _penguinProcessor = new PenguinProcessor(new Pinger(pingConfiguration), new PenguinRepository(pingConfiguration), new PenguinResultsRepository(pingConfiguration));
+            _penguinProcessor = CreateProcessor();
             _timer = new Timer(_settings.TickInterval);
             _timer.Elapsed += (sender, args) => _penguinProcessor.Tick();
+        }
+
+        private PenguinProcessor CreateProcessor()
+        {
+            var pingConfiguration = new PingConfiguration();
+            return new PenguinProcessor(new Pinger(pingConfiguration), new PenguinRepository(pingConfiguration),
+                new PenguinResultsRepository(pingConfiguration));
         }
 
         public void Start()

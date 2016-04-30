@@ -27,7 +27,16 @@ namespace IisExpress
 
     internal class ConfigFileSettings : IDatabaseSettings
     {
-        public string ConnectionString => ConfigurationManager.ConnectionStrings["Database"].ConnectionString;
+        public string ConnectionString
+        {
+            get
+            {
+
+                return ConfigurationManager.ConnectionStrings["Database"].ConnectionString.Replace("{AppDir}", AppDomain.CurrentDomain.BaseDirectory);
+            }
+
+        }
+
         public int TickInterval => GetAppsettingInt("TickInterval", 5000);
 
         private int GetAppsettingInt(string key, int defaultValue)

@@ -121,10 +121,21 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PingOwin.Store.SQLite\PingOwin.Store.SQLite.csproj">
+      <Project>{E3F78D62-CF74-466A-9DAD-0FC83F570FED}</Project>
+      <Name>PingOwin.Store.SQLite</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PingOwin.Web\PingOwin.Web.csproj">
       <Project>{91C65E60-629F-4A05-9786-C1BF9CAA34B1}</Project>
       <Name>PingOwin.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PingOwin\PingOwin.csproj">
+      <Project>{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}</Project>
+      <Name>PingOwin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppData\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 
 namespace PingOwin.Core.Interfaces
 {
-    public interface IOutput
+    public interface INotify
     {
-        Task SendToOutput(string text);
+        Task Notify(string text);
     }
 }

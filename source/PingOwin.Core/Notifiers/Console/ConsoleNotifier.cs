@@ -4,9 +4,9 @@ using PingOwin.Core.Interfaces;
 
 namespace PingOwin.Core.Notifiers.Konsole
 {
-    public class ConsoleNotifier : IOutput
+    public class ConsoleNotifier : INotify
     {
-        public Task SendToOutput(string text)
+        public Task Notify(string text)
         {
             Console.WriteLine(text);
             return Task.FromResult(0);

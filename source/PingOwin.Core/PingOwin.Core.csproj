@@ -54,7 +54,7 @@
     <Compile Include="Interfaces\ITransformerFactory.cs" />
     <Compile Include="Notifiers\Console\ConsoleNotifier.cs" />
     <Compile Include="Interfaces\IDatabaseSettings.cs" />
-    <Compile Include="Interfaces\IOutput.cs" />
+    <Compile Include="Interfaces\INotify.cs" />
     <Compile Include="Interfaces\IPenguinRepository.cs" />
     <Compile Include="Interfaces\IPenguinResultsRepository.cs" />
     <Compile Include="Interfaces\IPingConfiguration.cs" />

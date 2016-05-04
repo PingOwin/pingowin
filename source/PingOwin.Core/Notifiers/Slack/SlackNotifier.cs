@@ -4,7 +4,7 @@ using PingOwin.Core.Interfaces;
 
 namespace PingOwin.Core.Notifiers.Slack
 {
-    public class SlackNotifier : IOutput
+    public class SlackNotifier : INotify
     {
         private readonly ISlackOutputConfig _slackOutputConfig;
 
@@ -13,7 +13,7 @@ namespace PingOwin.Core.Notifiers.Slack
             _slackOutputConfig = slackOutputConfig;
         }
 
-        public Task SendToOutput(string text)
+        public Task Notify(string text)
         {
             var token = _slackOutputConfig.Token;
             var channel = _slackOutputConfig.Channel;

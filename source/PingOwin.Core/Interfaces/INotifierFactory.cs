@@ -4,6 +4,6 @@ namespace PingOwin.Core.Interfaces
 {
     public interface INotifierFactory
     {
-        IOutput CreateNotifier();
+        INotify CreateNotifier();
     }
 }

@@ -13,7 +13,7 @@ namespace PingOwin.Core.Processing
         private readonly IPenguinResultsRepository _penguinResultsRepository;
         private readonly ITransformResponses _transformer;
         private readonly HttpClientPinger _httpClientPinger;
-        private readonly IOutput _notifier;
+        private readonly INotify _notifier;
 
         public PenguinProcessor(IPingConfiguration config, IPenguinRepository penguinRepoi, IPenguinResultsRepository penguinResultsRepository, INotifierFactory notifierFactory, ITransformerFactory transformerfactory)
         {
@@ -43,7 +43,7 @@ namespace PingOwin.Core.Processing
                 });
             }
             var transformedMsg = _transformer.Transform(orderedByLevel);
-            await _notifier.SendToOutput(transformedMsg);
+            await _notifier.Notify(transformedMsg);
             _log.Information(transformedMsg);
         }
     }

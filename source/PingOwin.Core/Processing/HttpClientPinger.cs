@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using PingOwin.Core.Interfaces;
+using PingOwin.Core.Notifiers;
 
 namespace PingOwin.Core.Processing
 {

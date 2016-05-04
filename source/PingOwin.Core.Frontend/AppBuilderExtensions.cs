@@ -1,6 +1,7 @@
 ﻿using System;
 using Nancy.Owin;
 using Owin;
+using PingOwin.Core.Notifiers;
 using PingOwin.Core.Processing;
 using PingOwin.Core.Store.SQLite;
 using Timer = System.Timers.Timer;
@@ -34,7 +35,11 @@ namespace PingOwin.Core.Frontend
                 WarnThreshold = options.WarnThreshold
             };
             var processor = IoCFactory.CreateProcessor(pingConfiguration, databaseSettings, NotifierType.Konsole, Level.OK, new SlackConfig());
-            var serviceRunner = new ServiceRunner(options, processor);
+            var serviceRunner = new ServiceRunner(new ServiceRunnerOptions
+            {
+                PingIntervalInMillis = options.PingIntervalInMillis,
+                StartService = options.StartService
+            }, processor);
             serviceRunner.StartBackgroundThread();
        
             return appBuilder;

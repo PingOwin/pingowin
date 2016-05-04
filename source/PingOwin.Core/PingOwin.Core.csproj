@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IPingOwinOptions.cs" />
     <Compile Include="Notifiers\Console\ConsoleOutputter.cs" />
     <Compile Include="Interfaces\IDatabaseSettings.cs" />
     <Compile Include="Interfaces\IOutput.cs" />
@@ -57,13 +58,20 @@
     <Compile Include="Interfaces\IPingConfiguration.cs" />
     <Compile Include="Interfaces\ISlackOutputConfig.cs" />
     <Compile Include="Interfaces\ITransformResponses.cs" />
-    <Compile Include="Processing\Level.cs" />
+    <Compile Include="Notifiers\Level.cs" />
+    <Compile Include="Notifiers\NotifierFactory.cs" />
+    <Compile Include="Notifiers\NotifierType.cs" />
+    <Compile Include="Notifiers\SlackConfig.cs" />
+    <Compile Include="Processing\DbSettings.cs" />
     <Compile Include="Processing\Penguin.cs" />
     <Compile Include="Processing\PenguinProcessor.cs" />
     <Compile Include="Processing\PenguinResult.cs" />
+    <Compile Include="Processing\PingConfiguration.cs" />
     <Compile Include="Processing\Pinger.cs" />
     <Compile Include="Processing\PingResponse.cs" />
     <Compile Include="Processing\HttpClientPinger.cs" />
+    <Compile Include="Processing\ServiceRunner.cs" />
+    <Compile Include="Processing\ServiceRunnerOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Notifiers\Slack\SlackMessageTransformer.cs" />
     <Compile Include="Notifiers\Slack\SlackOutputter.cs" />

@@ -1,16 +1,15 @@
 ﻿using System.Timers;
-using PingOwin.Core.Processing;
-using PingOwin.Core.Store.SQLite;
+using Timer = System.Timers.Timer;
 
-namespace PingOwin.Core.Frontend
+namespace PingOwin.Core.Processing
 {
     public class ServiceRunner
     {
-        private readonly PingOwinOptions _options;
+        private readonly ServiceRunnerOptions _options;
         private readonly Timer _timer;
         private readonly PenguinProcessor _processor;
 
-        public ServiceRunner(PingOwinOptions options, PenguinProcessor processor)
+        public ServiceRunner(ServiceRunnerOptions options, PenguinProcessor processor)
         {
             _options = options;
             _timer = new Timer(options.PingIntervalInMillis);

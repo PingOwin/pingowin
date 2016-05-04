@@ -1,7 +1,7 @@
 ﻿using System;
 using PingOwin.Core.Interfaces;
 
-namespace PingOwin.Core.Frontend
+namespace PingOwin.Core.Processing
 {
     public class PingConfiguration : IPingConfiguration
     {

@@ -1,4 +1,4 @@
-namespace PingOwin.Core.Processing
+namespace PingOwin.Core.Notifiers
 {
     public enum Level
     {

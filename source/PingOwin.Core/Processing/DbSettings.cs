@@ -1,6 +1,6 @@
-﻿using PingOwin.Core.Interfaces;
+using PingOwin.Core.Interfaces;
 
-namespace PingOwin.Core.Frontend
+namespace PingOwin.Core.Processing
 {
     public class DbSettings : IDatabaseSettings
     {

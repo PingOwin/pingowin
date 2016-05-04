@@ -1,4 +1,6 @@
-﻿namespace PingOwin.Core.Processing
+﻿using PingOwin.Core.Notifiers;
+
+namespace PingOwin.Core.Processing
 {
     public class PingResponse
     {

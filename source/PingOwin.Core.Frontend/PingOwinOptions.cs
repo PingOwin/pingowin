@@ -19,7 +19,7 @@ namespace PingOwin.Core.Frontend
 
         public string PathToDb { get; set; }
         public Action<Action<CancellationToken>> StartService { get; set; }
-        public double PingIntervalInMillis { get; set; }
+        public long PingIntervalInMillis { get; set; }
         
     }
 }

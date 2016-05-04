@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Nancy;
 using Nancy.Responses;
-using PingIt.Lib;
 using PingOwin;
+using PingOwin.Core;
 
 namespace PingIt.Cmd.WebHost
 {

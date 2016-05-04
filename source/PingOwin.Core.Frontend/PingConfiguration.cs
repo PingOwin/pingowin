@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Configuration;
-using PingIt.Lib;
+using PingOwin.Core;
 
 namespace PingOwin.Web
 {

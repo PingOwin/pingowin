@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using PingIt.Lib;
 
-namespace PingOwin
+namespace PingOwin.Core
 {
     public interface IPenguinResultsRepository
     {

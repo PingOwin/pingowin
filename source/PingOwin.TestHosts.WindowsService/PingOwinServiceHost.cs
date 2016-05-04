@@ -1,9 +1,9 @@
 using System;
 using System.Timers;
 using Microsoft.Owin.Hosting;
-using PingIt.Lib;
-using PingIt.Lib.Processing;
 using PingIt.WindowsService;
+using PingOwin.Core;
+using PingOwin.Core.Processing;
 using PingOwin.Core.Store.SQLite;
 
 namespace PingOwin.TestHosts.WindowsService

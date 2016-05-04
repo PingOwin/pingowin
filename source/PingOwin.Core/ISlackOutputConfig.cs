@@ -1,4 +1,4 @@
-namespace PingIt.Lib
+namespace PingOwin.Core
 {
     public interface ISlackOutputConfig
     {

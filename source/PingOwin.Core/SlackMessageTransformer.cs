@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PingIt.Lib
+namespace PingOwin.Core
 {
     public class SlackMessageTransformer : ITransformResponses
     {

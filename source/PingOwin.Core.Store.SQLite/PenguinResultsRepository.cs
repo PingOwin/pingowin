@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dapper;
-using PingIt.Lib;
 using PingOwin;
 
 namespace PingOwin.Core.Store.SQLite

@@ -1,6 +1,6 @@
 ﻿using System.Timers;
-using PingIt.Lib;
-using PingIt.Lib.Processing;
+using PingOwin.Core;
+using PingOwin.Core.Processing;
 using PingOwin.Core.Store.SQLite;
 
 namespace PingOwin.Web

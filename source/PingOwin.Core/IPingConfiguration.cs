@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PingIt.Lib
+namespace PingOwin.Core
 {
     public interface IPingConfiguration
     {

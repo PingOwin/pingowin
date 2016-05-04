@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using PingOwin;
+using PingOwin.Core;
 
 namespace PingIt.WindowsService
 {

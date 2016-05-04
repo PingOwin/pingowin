@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace PingIt.Lib
+namespace PingOwin.Core
 {
     public class ConsoleOutputter : IOutput
     {

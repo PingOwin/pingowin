@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using PingOwin;
 using Serilog;
 
-namespace PingIt.Lib.Processing
+namespace PingOwin.Core.Processing
 {
     public class PenguinProcessor
     {

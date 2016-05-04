@@ -1,4 +1,6 @@
-﻿namespace PingOwin.Web
+﻿using PingOwin.Core;
+
+namespace PingOwin.Web
 {
     public class DbSettings : IDatabaseSettings
     {

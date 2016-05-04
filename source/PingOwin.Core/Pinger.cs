@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PingIt.Lib
+namespace PingOwin.Core
 {
     public class Pinger
     {

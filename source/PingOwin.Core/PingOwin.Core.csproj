@@ -7,8 +7,8 @@
     <ProjectGuid>{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PingOwin</RootNamespace>
-    <AssemblyName>PingOwin</AssemblyName>
+    <RootNamespace>PingOwin.Core</RootNamespace>
+    <AssemblyName>PingOwin.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -10,11 +10,11 @@ namespace PingOwin.Core.Frontend
 {
     public class PingOwinWebBootstrapper : DefaultNancyBootstrapper 
     {
-        private readonly string _connectionstring;
+        private readonly IDatabaseSettings _databaseSettings;
 
-        public PingOwinWebBootstrapper(string connectionstring)
+        public PingOwinWebBootstrapper(IDatabaseSettings databaseSettings)
         {
-            _connectionstring = connectionstring;
+            _databaseSettings = databaseSettings;
         }
 
         protected override void ApplicationStartup(TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
@@ -24,7 +24,7 @@ namespace PingOwin.Core.Frontend
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            container.Register<IDatabaseSettings>((c,p) => new ConfigFileSettingsDuplicate(_connectionstring));
+            container.Register<IDatabaseSettings>((c,p) => _databaseSettings);
             container.Register<IPenguinRepository, PenguinRepository>();
             container.Register<IPenguinResultsRepository, PenguinResultsRepository>();
             base.ConfigureApplicationContainer(container);

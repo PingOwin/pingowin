@@ -23,7 +23,7 @@ namespace PingOwin.Core.Frontend
             
             var conf = new NancyOptions
             {
-                Bootstrapper = new PingOwinWebBootstrapper(connectionString)
+                Bootstrapper = new PingOwinWebBootstrapper(databaseSettings)
             };
             
             appBuilder.UseNancy(conf);

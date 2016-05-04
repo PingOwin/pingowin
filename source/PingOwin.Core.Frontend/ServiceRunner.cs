@@ -26,19 +26,20 @@ namespace PingOwin.Core.Frontend
 
         private void TickOnBackgroundThread(object sender, ElapsedEventArgs e)
         {
-            _options.StartService(cancellationToken =>
+            if (_options.StartService != null)
             {
-                if (cancellationToken.IsCancellationRequested)
+                _options.StartService(cancellationToken =>
                 {
-                    _timer.Stop();
-                }
-                else
-                {
-                    _processor.Tick().GetAwaiter().GetResult();
-                }
-            });
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        _timer.Stop();
+                    }
+                    else
+                    {
+                        _processor.Tick().GetAwaiter().GetResult();
+                    }
+                });
+            }
         }
-
- 
     }
 }

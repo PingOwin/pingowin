@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace PingOwin.Core
+namespace PingOwin.Core.Interfaces
 {
     public interface IOutput
     {

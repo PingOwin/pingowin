@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Nancy;
 using Nancy.Responses;
+using PingOwin.Core.Interfaces;
 
 namespace PingOwin.Core.Frontend
 {

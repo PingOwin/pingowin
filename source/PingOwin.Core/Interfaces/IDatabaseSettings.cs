@@ -1,4 +1,4 @@
-﻿namespace PingOwin.Core
+﻿namespace PingOwin.Core.Interfaces
 {
     public interface IDatabaseSettings
     {

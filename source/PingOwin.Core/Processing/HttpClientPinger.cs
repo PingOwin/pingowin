@@ -2,14 +2,15 @@
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
+using PingOwin.Core.Interfaces;
 
-namespace PingOwin.Core
+namespace PingOwin.Core.Processing
 {
-    public class PingTaskCreator
+    public class HttpClientPinger
     {
         private readonly IPingConfiguration _pingConfiguration;
 
-        public PingTaskCreator(IPingConfiguration pingConfiguration)
+        public HttpClientPinger(IPingConfiguration pingConfiguration)
         {
             _pingConfiguration = pingConfiguration;
         }

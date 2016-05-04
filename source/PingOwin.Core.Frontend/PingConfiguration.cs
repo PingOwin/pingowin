@@ -1,4 +1,5 @@
 ﻿using System;
+using PingOwin.Core.Interfaces;
 
 namespace PingOwin.Core.Frontend
 {

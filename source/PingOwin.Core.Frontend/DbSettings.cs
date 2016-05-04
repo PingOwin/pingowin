@@ -1,4 +1,6 @@
-﻿namespace PingOwin.Core.Frontend
+﻿using PingOwin.Core.Interfaces;
+
+namespace PingOwin.Core.Frontend
 {
     public class DbSettings : IDatabaseSettings
     {

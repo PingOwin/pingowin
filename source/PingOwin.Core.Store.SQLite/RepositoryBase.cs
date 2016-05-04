@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
+using PingOwin.Core.Interfaces;
 
 namespace PingOwin.Core.Store.SQLite
 {

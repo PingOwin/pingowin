@@ -49,28 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleOutputter.cs" />
-    <Compile Include="IDatabaseSettings.cs" />
-    <Compile Include="IOutput.cs" />
-    <Compile Include="IPenguinResultsRepository.cs" />
-    <Compile Include="IPingConfiguration.cs" />
-    <Compile Include="ISlackOutputConfig.cs" />
-    <Compile Include="IPenguinRepository.cs" />
-    <Compile Include="ITransformResponses.cs" />
-    <Compile Include="Level.cs" />
-    <Compile Include="PenguinResult.cs" />
-    <Compile Include="Pinger.cs" />
-    <Compile Include="PingResponse.cs" />
-    <Compile Include="PingTaskCreator.cs" />
+    <Compile Include="Notifiers\Console\ConsoleOutputter.cs" />
+    <Compile Include="Interfaces\IDatabaseSettings.cs" />
+    <Compile Include="Interfaces\IOutput.cs" />
+    <Compile Include="Interfaces\IPenguinRepository.cs" />
+    <Compile Include="Interfaces\IPenguinResultsRepository.cs" />
+    <Compile Include="Interfaces\IPingConfiguration.cs" />
+    <Compile Include="Interfaces\ISlackOutputConfig.cs" />
+    <Compile Include="Interfaces\ITransformResponses.cs" />
+    <Compile Include="Processing\Level.cs" />
+    <Compile Include="Processing\Penguin.cs" />
     <Compile Include="Processing\PenguinProcessor.cs" />
+    <Compile Include="Processing\PenguinResult.cs" />
+    <Compile Include="Processing\Pinger.cs" />
+    <Compile Include="Processing\PingResponse.cs" />
+    <Compile Include="Processing\HttpClientPinger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SlackMessageTransformer.cs" />
-    <Compile Include="SlackOutputter.cs" />
-    <Compile Include="Penguin.cs" />
+    <Compile Include="Notifiers\Slack\SlackMessageTransformer.cs" />
+    <Compile Include="Notifiers\Slack\SlackOutputter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

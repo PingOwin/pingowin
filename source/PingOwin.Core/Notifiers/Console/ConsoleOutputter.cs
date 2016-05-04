@@ -1,7 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using PingOwin.Core.Interfaces;
 
-namespace PingOwin.Core
+namespace PingOwin.Core.Notifiers.Konsole
 {
     public class ConsoleOutputter : IOutput
     {

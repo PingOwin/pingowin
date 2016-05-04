@@ -1,7 +1,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
+using PingOwin.Core.Interfaces;
 
-namespace PingOwin.Core
+namespace PingOwin.Core.Notifiers.Slack
 {
     public class SlackOutputter : IOutput
     {

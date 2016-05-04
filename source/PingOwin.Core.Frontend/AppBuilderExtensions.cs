@@ -1,6 +1,7 @@
 ﻿using System;
 using Nancy.Owin;
 using Owin;
+using PingOwin.Core.Processing;
 using PingOwin.Core.Store.SQLite;
 using Timer = System.Timers.Timer;
 
@@ -32,7 +33,7 @@ namespace PingOwin.Core.Frontend
                 RequestTimeOut = new TimeSpan(0,0,0,0,options.RequestTimeOut),
                 WarnThreshold = options.WarnThreshold
             };
-            var processor = IoCFactory.CreateProcessor(pingConfiguration, databaseSettings);
+            var processor = IoCFactory.CreateProcessor(pingConfiguration, databaseSettings, NotifierType.Konsole, Level.OK, new SlackConfig());
             var serviceRunner = new ServiceRunner(options, processor);
             serviceRunner.StartBackgroundThread();
        

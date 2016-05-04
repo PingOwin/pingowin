@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Nancy;
 using Nancy.TinyIoc;
+using PingOwin.Core.Interfaces;
 using PingOwin.Core.Store.SQLite;
 
 namespace PingOwin.Core.Frontend

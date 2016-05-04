@@ -1,4 +1,4 @@
-﻿namespace PingOwin.Core
+﻿namespace PingOwin.Core.Processing
 {
     public class Penguin
     {

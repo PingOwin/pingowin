@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Text;
+using PingOwin.Core.Interfaces;
+using PingOwin.Core.Processing;
 
-namespace PingOwin.Core
+namespace PingOwin.Core.Notifiers.Slack
 {
     public class SlackMessageTransformer : ITransformResponses
     {

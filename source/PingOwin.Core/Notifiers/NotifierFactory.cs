@@ -21,9 +21,9 @@ namespace PingOwin.Core.Notifiers
             switch (_notifierType)
             {
                 case NotifierType.Konsole:
-                    return new ConsoleOutputter();
+                    return new ConsoleNotifier();
                 case NotifierType.Slack:
-                    return new SlackOutputter(_slackOutputConfig);
+                    return new SlackNotifier(_slackOutputConfig);
                 default:
                     throw new ArgumentOutOfRangeException();
             }

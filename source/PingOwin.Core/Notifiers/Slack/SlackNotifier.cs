@@ -4,11 +4,11 @@ using PingOwin.Core.Interfaces;
 
 namespace PingOwin.Core.Notifiers.Slack
 {
-    public class SlackOutputter : IOutput
+    public class SlackNotifier : IOutput
     {
         private readonly ISlackOutputConfig _slackOutputConfig;
 
-        public SlackOutputter(ISlackOutputConfig slackOutputConfig)
+        public SlackNotifier(ISlackOutputConfig slackOutputConfig)
         {
             _slackOutputConfig = slackOutputConfig;
         }

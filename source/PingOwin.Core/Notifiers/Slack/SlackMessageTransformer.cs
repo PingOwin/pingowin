@@ -41,18 +41,5 @@ namespace PingOwin.Core.Notifiers.Slack
             }
             return sb.ToString();
         }
-
-        public string TransformDebugInfo(IEnumerable<string> urls)
-        {
-            var sb = new StringBuilder();
-            sb.AppendLine("```");
-            foreach (var url in urls)
-            {
-                sb.AppendLine($"{url}");
-            }
-            sb.AppendLine("```");
-            return sb.ToString();
-        }
-
     }
 }

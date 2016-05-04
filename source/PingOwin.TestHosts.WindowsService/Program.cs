@@ -1,10 +1,7 @@
-﻿using System;
-using PingOwin.Core.Store.SQLite;
-using Serilog;
-using Serilog.Core;
+﻿using Serilog;
 using Topshelf;
 
-namespace PingIt.WindowsService
+namespace PingOwin.TestHosts.WindowsService
 {
     class Program
     {

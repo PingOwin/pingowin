@@ -3,10 +3,10 @@ using System.Timers;
 using Microsoft.Owin.Hosting;
 using PingIt.Lib;
 using PingIt.Lib.Processing;
+using PingIt.WindowsService;
 using PingOwin.Core.Store.SQLite;
-using PingOwin.WindowsService;
 
-namespace PingIt.WindowsService
+namespace PingOwin.TestHosts.WindowsService
 {
     internal class PingOwinServiceHost
     {

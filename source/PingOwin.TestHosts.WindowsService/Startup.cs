@@ -1,13 +1,13 @@
 ﻿using Owin;
 using PingOwin.Web;
 
-namespace PingOwin.WindowsService
+namespace PingOwin.TestHosts.WindowsService
 {
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UsePingOwinFrontend(null);
+            app.UsePingOwinFrontend();
         }
     }
 }

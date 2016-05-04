@@ -1,9 +1,8 @@
 using System;
 using System.Configuration;
 using PingIt.Lib;
-using PingOwin;
 
-namespace PingIt.WindowsService
+namespace PingOwin.TestHosts.WindowsService
 {
     public class PingConfiguration : IPingConfiguration, IDatabaseSettings
     {

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Configuration;
-using PingOwin.Core;
 
-namespace PingOwin.Web
+namespace PingOwin.Core.Frontend
 {
     public class PingConfiguration : IPingConfiguration
     {

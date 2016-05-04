@@ -1,5 +1,5 @@
 ﻿using Owin;
-using PingOwin.Web;
+using PingOwin.Core.Frontend;
 
 namespace PingOwin.TestHosts.WindowsService
 {

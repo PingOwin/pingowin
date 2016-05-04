@@ -1,9 +1,8 @@
 ﻿using System.Timers;
-using PingOwin.Core;
 using PingOwin.Core.Processing;
 using PingOwin.Core.Store.SQLite;
 
-namespace PingOwin.Web
+namespace PingOwin.Core.Frontend
 {
     public class ServiceRunner
     {

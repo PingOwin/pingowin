@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Threading;
-using Nancy;
 using Nancy.Owin;
 using Owin;
 using PingOwin.Core.Store.SQLite;
 using Timer = System.Timers.Timer;
 
-namespace PingOwin.Web
+namespace PingOwin.Core.Frontend
 {
     public static class AppBuilderExtensions
     {

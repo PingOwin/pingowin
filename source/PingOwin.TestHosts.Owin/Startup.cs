@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Web.Hosting;
-using Microsoft.Owin;
 using Owin;
-using PingOwin.Web;
-
-[assembly: OwinStartup(typeof(IisExpress.Startup))]
+using PingOwin.Core.Frontend;
 
 namespace IisExpress
 {
@@ -20,7 +17,5 @@ namespace IisExpress
 
             app.UsePingOwinFrontend(pingOwinOptions);
         }
-
- 
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using Nancy.Owin;
 using Owin;
 using PingOwin.Core.Store.SQLite;
@@ -28,24 +27,16 @@ namespace PingOwin.Core.Frontend
             
             appBuilder.UseNancy(conf);
 
-            var factory = new ServiceRunner(options, databaseSettings);
-            factory.Start();
+            var pingConfiguration = new PingConfiguration
+            {
+                RequestTimeOut = new TimeSpan(0,0,0,0,options.RequestTimeOut),
+                WarnThreshold = options.WarnThreshold
+            };
+            var processor = IoCFactory.CreateProcessor(pingConfiguration, databaseSettings);
+            var serviceRunner = new ServiceRunner(options, processor);
+            serviceRunner.StartBackgroundThread();
        
             return appBuilder;
         }
-    }
-
-
-    public class PingOwinOptions
-    {
-        public PingOwinOptions()
-        {
-            PathToDb = AppDomain.CurrentDomain.BaseDirectory;
-            PingIntervalInMillis = 5000;
-        }
-
-        public string PathToDb { get; set; }
-        public Action<Action<CancellationToken>> StartService { get; set; }
-        public double PingIntervalInMillis { get; set; }
     }
 }

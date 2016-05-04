@@ -10,16 +10,16 @@ namespace PingOwin.Core.Frontend
         private readonly Timer _timer;
         private readonly PenguinProcessor _processor;
 
-        public ServiceRunner(PingOwinOptions options, DbSettings dbSettings)
+        public ServiceRunner(PingOwinOptions options, PenguinProcessor processor)
         {
             _options = options;
             _timer = new Timer(options.PingIntervalInMillis);
             _timer.Elapsed += TickOnBackgroundThread;
             _timer.Start();
-            _processor = CreateProcessor(dbSettings);
+            _processor = processor;
         }
 
-        public void Start()
+        public void StartBackgroundThread()
         {
             _timer.Start();
         }
@@ -39,11 +39,6 @@ namespace PingOwin.Core.Frontend
             });
         }
 
-        private static PenguinProcessor CreateProcessor(DbSettings databaseSettings)
-        {
-            var pingConfiguration = new PingConfiguration();
-            return new PenguinProcessor(new Pinger(pingConfiguration), new PenguinRepository(databaseSettings),
-                new PenguinResultsRepository(databaseSettings));
-        }
+ 
     }
 }

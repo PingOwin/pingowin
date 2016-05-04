@@ -3,7 +3,7 @@ using System.Web.Hosting;
 using Owin;
 using PingOwin.Core.Frontend;
 
-namespace IisExpress
+namespace PingOwin.TestHosts.Owin
 {
     public class Startup
     {
@@ -14,7 +14,6 @@ namespace IisExpress
                 PathToDb = AppDomain.CurrentDomain.BaseDirectory,
                 StartService = HostingEnvironment.QueueBackgroundWorkItem
             };
-
             app.UsePingOwinFrontend(pingOwinOptions);
         }
     }

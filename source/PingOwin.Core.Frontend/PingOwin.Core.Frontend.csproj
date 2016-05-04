@@ -50,7 +50,9 @@
     <Compile Include="AppBuilderExtensions.cs" />
     <Compile Include="ConfigFileSettingsDuplicate.cs" />
     <Compile Include="DbSettings.cs" />
+    <Compile Include="IoCFactory.cs" />
     <Compile Include="PingConfiguration.cs" />
+    <Compile Include="PingOwinOptions.cs" />
     <Compile Include="ServiceRunner.cs" />
     <Compile Include="PingOwinWebBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

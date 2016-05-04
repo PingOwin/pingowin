@@ -13,15 +13,15 @@ namespace PingOwin.Core.Processing
         private readonly IPenguinResultsRepository _penguinResultsRepository;
         private readonly ITransformResponses _transformer;
         private readonly HttpClientPinger _httpClientPinger;
-        private IOutput _notifier;
+        private readonly IOutput _notifier;
 
-        public PenguinProcessor(IPingConfiguration config, IPenguinRepository penguinRepoi, IPenguinResultsRepository penguinResultsRepository, INotifierFactory notifierFactory)
+        public PenguinProcessor(IPingConfiguration config, IPenguinRepository penguinRepoi, IPenguinResultsRepository penguinResultsRepository, INotifierFactory notifierFactory, ITransformerFactory transformerfactory)
         {
             _httpClientPinger = new HttpClientPinger(config);
             _repo = penguinRepoi;
             _penguinResultsRepository = penguinResultsRepository;
 
-            _transformer = notifierFactory.CreateTransformer(); //new SlackMessageTransformer(Level.OK);
+            _transformer = transformerfactory.CreateTransformer();
             _notifier = notifierFactory.CreateNotifier();
         }
 
@@ -46,11 +46,5 @@ namespace PingOwin.Core.Processing
             await _notifier.SendToOutput(transformedMsg);
             _log.Information(transformedMsg);
         }
-    }
-
-    public interface INotifierFactory
-    {
-        ITransformResponses CreateTransformer();
-        IOutput CreateNotifier();
     }
 }

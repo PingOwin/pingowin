@@ -7,12 +7,16 @@ namespace PingOwin.Core.Frontend
 {
     public static class IoCFactory
     {
-        public static PenguinProcessor CreateProcessor(PingConfiguration configuration, DbSettings databaseSettings, NotifierType notifierType, Level level, ISlackOutputConfig slackConfig)
+        public static PenguinProcessor CreateProcessor(PingConfiguration configuration, 
+            DbSettings databaseSettings, 
+            INotifierFactory notifierFactory,
+            ITransformerFactory transformerFactory)
         {
             return new PenguinProcessor(configuration, 
-                new PenguinRepository(databaseSettings), 
-                new PenguinResultsRepository(databaseSettings),
-                new NotifierFactory(notifierType, level, slackConfig));
+                        new PenguinRepository(databaseSettings), 
+                        new PenguinResultsRepository(databaseSettings),
+                        notifierFactory,
+                        transformerFactory);
         }
     }
 }

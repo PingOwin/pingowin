@@ -1,6 +1,7 @@
 ﻿using System;
 using Nancy.Owin;
 using Owin;
+using PingOwin.Core.Interfaces;
 using PingOwin.Core.Notifiers;
 using PingOwin.Core.Processing;
 using PingOwin.Core.Store.SQLite;
@@ -34,7 +35,16 @@ namespace PingOwin.Core.Frontend
                 RequestTimeOut = new TimeSpan(0,0,0,0,options.RequestTimeOut),
                 WarnThreshold = options.WarnThreshold
             };
-            var processor = IoCFactory.CreateProcessor(pingConfiguration, databaseSettings, NotifierType.Konsole, Level.OK, new SlackConfig());
+
+            var notifierType = NotifierType.Konsole;
+            var slackConfig = new SlackConfig();
+
+            var notifierFactory = new NotifierFactory(notifierType, slackConfig);
+            var transformerFactory = new TransformerFactory(notifierType, Level.OK);
+
+            var processor = IoCFactory.CreateProcessor(pingConfiguration, databaseSettings, notifierFactory, transformerFactory);
+
+
             var serviceRunner = new ServiceRunner(new ServiceRunnerOptions
             {
                 PingIntervalInMillis = options.PingIntervalInMillis,

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PingIt.Cmd.WebHost")]
+[assembly: AssemblyTitle("PingOwin.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PingIt.Cmd.WebHost")]
+[assembly: AssemblyProduct("PingOwin")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fe6a96a1-968d-4238-82c0-92854f809d9f")]
+[assembly: Guid("266b5055-a6e7-47d3-8c2b-93fb1bb6c282")]
 
 // Version information for an assembly consists of the following four values:
 //

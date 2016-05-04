@@ -87,15 +87,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="..\PingOwin.Web\views\MasterPage.sshtml">
+    <Content Include="..\PingOwin.Core.Frontend\views\MasterPage.sshtml">
       <Link>views\MasterPage.sshtml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\PingOwin.Web\views\AllPingowins.sshtml">
+    <Content Include="..\PingOwin.Core.Frontend\views\AllPingowins.sshtml">
       <Link>views\AllPingowins.sshtml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\PingOwin.Web\views\Results.sshtml">
+    <Content Include="..\PingOwin.Core.Frontend\views\Results.sshtml">
       <Link>views\Results.sshtml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -117,17 +117,17 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PingOwin.Core.Frontend\PingOwin.Core.Frontend.csproj">
+      <Project>{91c65e60-629f-4a05-9786-c1bf9caa34b1}</Project>
+      <Name>PingOwin.Core.Frontend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PingOwin.Core\PingOwin.Core.csproj">
+      <Project>{266b5055-a6e7-47d3-8c2b-93fb1bb6c282}</Project>
+      <Name>PingOwin.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PingOwin.Store.SQLite\PingOwin.Store.SQLite.csproj">
-      <Project>{E3F78D62-CF74-466A-9DAD-0FC83F570FED}</Project>
+      <Project>{e3f78d62-cf74-466a-9dad-0fc83f570fed}</Project>
       <Name>PingOwin.Store.SQLite</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PingOwin.Web\PingOwin.Web.csproj">
-      <Project>{91C65E60-629F-4A05-9786-C1BF9CAA34B1}</Project>
-      <Name>PingOwin.Web</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PingOwin\PingOwin.csproj">
-      <Project>{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}</Project>
-      <Name>PingOwin</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

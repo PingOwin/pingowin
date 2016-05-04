@@ -1,5 +1,5 @@
 ﻿using System;
-using PingIt.Store.SQLite;
+using PingOwin.Core.Store.SQLite;
 using Serilog;
 using Serilog.Core;
 using Topshelf;

@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace PingIt.Store.SQLite.Migrations
+namespace PingOwin.Core.Store.SQLite.Migrations
 {
     [Migration(201604291116)]
     public class _201604291116_CreatePenguins : ForwardOnlyMigration

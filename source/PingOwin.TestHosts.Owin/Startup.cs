@@ -7,7 +7,7 @@ using Microsoft.Owin;
 using Owin;
 using PingIt.Lib;
 using PingIt.Lib.Processing;
-using PingIt.Store.SQLite;
+using PingOwin.Core.Store.SQLite;
 using PingOwin;
 using PingOwin.Web;
 

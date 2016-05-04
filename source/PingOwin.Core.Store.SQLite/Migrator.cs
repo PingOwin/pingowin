@@ -5,9 +5,8 @@ using FluentMigrator.Runner.Announcers;
 using FluentMigrator.Runner.Initialization;
 using FluentMigrator.Runner.Processors;
 using FluentMigrator.Runner.Processors.SQLite;
-using PingOwin;
 
-namespace PingIt.Store.SQLite
+namespace PingOwin.Core.Store.SQLite
 {
     public class Migrator
     {

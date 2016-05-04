@@ -4,7 +4,7 @@ using Dapper;
 using PingIt.Lib;
 using PingOwin;
 
-namespace PingIt.Store.SQLite
+namespace PingOwin.Core.Store.SQLite
 {
     public class PenguinResultsRepository : RepositoryBase, IPenguinResultsRepository
     {

@@ -76,13 +76,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PingOwin.Store.SQLite\PingOwin.Store.SQLite.csproj">
+    <ProjectReference Include="..\PingOwin.Core.Store.SQLite\PingOwin.Core.Store.SQLite.csproj">
       <Project>{E3F78D62-CF74-466A-9DAD-0FC83F570FED}</Project>
-      <Name>PingOwin.Store.SQLite</Name>
+      <Name>PingOwin.Core.Store.SQLite</Name>
     </ProjectReference>
     <ProjectReference Include="..\PingOwin.Core\PingOwin.Core.csproj">
       <Project>{266B5055-A6E7-47D3-8C2B-93FB1BB6C282}</Project>
-      <Name>PingOwin</Name>
+      <Name>PingOwin.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

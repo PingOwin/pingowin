@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SQLite;
 using PingOwin;
 
-namespace PingIt.Store.SQLite
+namespace PingOwin.Core.Store.SQLite
 {
     public class RepositoryBase
     {

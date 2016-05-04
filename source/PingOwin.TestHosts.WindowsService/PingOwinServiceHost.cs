@@ -3,7 +3,7 @@ using System.Timers;
 using Microsoft.Owin.Hosting;
 using PingIt.Lib;
 using PingIt.Lib.Processing;
-using PingIt.Store.SQLite;
+using PingOwin.Core.Store.SQLite;
 using PingOwin.WindowsService;
 
 namespace PingIt.WindowsService

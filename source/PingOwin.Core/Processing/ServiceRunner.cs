@@ -25,9 +25,9 @@ namespace PingOwin.Core.Processing
 
         private void TickOnBackgroundThread(object sender, ElapsedEventArgs e)
         {
-            if (_options.StartService != null)
+            if (_options.RunBackgroundThread != null)
             {
-                _options.StartService(cancellationToken =>
+                _options.RunBackgroundThread(cancellationToken =>
                 {
                     if (cancellationToken.IsCancellationRequested)
                     {
@@ -38,6 +38,10 @@ namespace PingOwin.Core.Processing
                         _processor.Tick().GetAwaiter().GetResult();
                     }
                 });
+            }
+            else
+            {
+                _processor.Tick().GetAwaiter().GetResult();
             }
         }
     }

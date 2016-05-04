@@ -38,7 +38,7 @@ namespace PingOwin.Core.Frontend
             var serviceRunner = new ServiceRunner(new ServiceRunnerOptions
             {
                 PingIntervalInMillis = options.PingIntervalInMillis,
-                StartService = options.StartService
+                RunBackgroundThread = options.StartService
             }, processor);
             serviceRunner.StartBackgroundThread();
        

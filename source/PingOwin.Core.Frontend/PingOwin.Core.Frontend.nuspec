@@ -17,4 +17,7 @@
       <dependency id="Nancy.Owin" version="1.4.1" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="\bin\Release\*.dll" target="" /> 
+  </files>
 </package>

@@ -1,4 +1,4 @@
-[![NuGet](https://img.shields.io/nuget/v/PingOwin.svg?maxAge=2592000)]()
+[![NuGet](https://img.shields.io/nuget/v/PingOwin.svg?maxAge=2592000)](https://www.nuget.org/packages/pingowin)
 
 # PingOwin
 *Ping - because we ping stuff; Owin because we run in every Owin host.*

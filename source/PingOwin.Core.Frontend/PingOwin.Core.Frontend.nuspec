@@ -3,21 +3,28 @@
   <metadata>
     <id>PingOwin</id>
     <version>0.0.1</version>
-    <authors>Blank Oslo</authors>
+    <authors>johnkors madsny</authors>
     <owners>johnkors madsny</owners>
-    <licenseUrl>https://github.com/blankoslo/pingowin/blob/master/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/pingowin/pingowin/blob/master/LICENSE</licenseUrl>
     <projectUrl>http://pingow.in/</projectUrl>
     <iconUrl>http://pingow.in/images/nuget.logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A Owin hosted ping server</description>
-    <releaseNotes>SQLite-backed pign server</releaseNotes>
+    <description>A simple ping server and administration tool</description>
+    <releaseNotes>SQLite-backed ping server</releaseNotes>
     <copyright>Copyright Blank 2016</copyright>
-    <tags>Ping Blank Pinguin PingOwin </tags>
+    <tags>Ping Blank Penguin PingOwin</tags>
     <dependencies>
       <dependency id="Nancy.Owin" version="1.4.1" />
+      <dependency id="System.Data.SQLite.Core" version="1.0.101.0" />
+      <dependency id="FluentMigrator.Runner" version="1.6.1" />
+      <dependency id="Dapper" version="1.42" />
+      <dependency id="Serilog" version="1.5.14" />
     </dependencies>
   </metadata>
   <files>
-    <file src="\bin\Release\*.dll" target="" /> 
+    <file src="\bin\Release\views\*.*" target="content\views\" />
+    <file src="\bin\Release\PingOwin.Core.Frontend.dll" target="lib\net45" /> 
+    <file src="\bin\Release\PingOwin.Core.dll" target="lib\net45" /> 
+    <file src="\bin\Release\PingOwin.Core.Store.SQLite.dll" target="lib\net45" /> 
   </files>
 </package>

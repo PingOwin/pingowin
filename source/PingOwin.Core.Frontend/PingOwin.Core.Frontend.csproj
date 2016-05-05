@@ -69,6 +69,7 @@
     <Content Include="views\Results.sshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="PingOwin.Core.Frontend.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PingOwin.Core.Store.SQLite\PingOwin.Core.Store.SQLite.csproj">

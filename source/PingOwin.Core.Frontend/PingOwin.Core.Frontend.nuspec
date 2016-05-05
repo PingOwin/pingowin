@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PingOwin</id>
+    <version>0.0.1</version>
+    <authors>Blank Oslo</authors>
+    <owners>johnkors madsny</owners>
+    <licenseUrl>https://github.com/blankoslo/pingowin/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://pingow.in/</projectUrl>
+    <iconUrl>http://pingow.in/images/nuget.logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A Owin hosted ping server</description>
+    <releaseNotes>SQLite-backed pign server</releaseNotes>
+    <copyright>Copyright Blank 2016</copyright>
+    <tags>Ping Blank Pinguin PingOwin </tags>
+    <dependencies>
+      <dependency id="Nancy.Owin" version="1.4.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="\bin\Release\*.dll" target="" /> 
+  </files>
+</package>

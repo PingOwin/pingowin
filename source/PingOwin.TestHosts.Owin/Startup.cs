@@ -14,7 +14,7 @@ namespace PingOwin.TestHosts.Owin
                 PathToDb = AppDomain.CurrentDomain.BaseDirectory,
                 StartService = HostingEnvironment.QueueBackgroundWorkItem
             };
-            app.UsePingOwinFrontend(pingOwinOptions);
+            app.UsePingOwin(pingOwinOptions);
         }
     }
 }

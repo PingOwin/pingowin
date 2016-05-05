@@ -13,7 +13,7 @@ namespace PingOwin.Core.Frontend
     {
         private static Timer _timer;
 
-        public static IAppBuilder UsePingOwinFrontend(this IAppBuilder appBuilder, PingOwinOptions options = null)
+        public static IAppBuilder UsePingOwin(this IAppBuilder appBuilder, PingOwinOptions options = null)
         {
             options = options ?? new PingOwinOptions();
 

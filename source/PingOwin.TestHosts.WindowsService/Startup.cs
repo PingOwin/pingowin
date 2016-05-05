@@ -9,7 +9,7 @@ namespace PingOwin.TestHosts.WindowsService
         public void Configuration(IAppBuilder app)
         {
             // TODO : find a common way to do background threads for web hosts and windows services
-            app.UsePingOwinFrontend(new PingOwinOptions
+            app.UsePingOwin(new PingOwinOptions
             {
                 PathToDb = "C:\\temp\\"
             });

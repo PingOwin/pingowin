@@ -7,7 +7,7 @@
     <owners>johnkors madsny</owners>
     <licenseUrl>https://github.com/blankoslo/pingowin/blob/master/LICENSE</licenseUrl>
     <projectUrl>http://pingow.in/</projectUrl>
-    <iconUrl>http://www.designmantic.com/create_thumb?id=12029</iconUrl>
+    <iconUrl>http://pingow.in/images/nuget.logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A Owin hosted ping server</description>
     <releaseNotes>SQLite-backed pign server</releaseNotes>

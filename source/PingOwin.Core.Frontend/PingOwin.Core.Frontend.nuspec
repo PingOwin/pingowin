@@ -5,14 +5,14 @@
     <version>0.0.1</version>
     <authors>Blank Oslo</authors>
     <owners>johnkors madsny</owners>
-    <licenseUrl>https://github.com/blankoslo/pingowin/blob/master/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/pingowin/pingowin/blob/master/LICENSE</licenseUrl>
     <projectUrl>http://pingow.in/</projectUrl>
     <iconUrl>http://pingow.in/images/nuget.logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A Owin hosted ping server</description>
-    <releaseNotes>SQLite-backed pign server</releaseNotes>
+    <description>A simple ping server and administration tool</description>
+    <releaseNotes>SQLite-backed ping server</releaseNotes>
     <copyright>Copyright Blank 2016</copyright>
-    <tags>Ping Blank Pinguin PingOwin </tags>
+    <tags>Ping Blank Penguin PingOwin</tags>
     <dependencies>
       <dependency id="Nancy.Owin" version="1.4.1" />
     </dependencies>

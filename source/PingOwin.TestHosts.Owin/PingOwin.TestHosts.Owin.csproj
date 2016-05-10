@@ -69,18 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="..\PingOwin.Core.Frontend\views\MasterPage.sshtml">
-      <Link>views\MasterPage.sshtml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\PingOwin.Core.Frontend\views\AllPingowins.sshtml">
-      <Link>views\AllPingowins.sshtml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\PingOwin.Core.Frontend\views\Results.sshtml">
-      <Link>views\Results.sshtml</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="pingowin.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

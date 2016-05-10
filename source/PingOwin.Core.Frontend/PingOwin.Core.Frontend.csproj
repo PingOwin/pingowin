@@ -55,20 +55,14 @@
     <Compile Include="RootModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="views\AllPingowins.sshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Views\AllPingowins.sshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="views\MasterPage.sshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Views\MasterPage.sshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="views\Results.sshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Views\Results.sshtml" />
     <None Include="PingOwin.Core.Frontend.nuspec" />
   </ItemGroup>
   <ItemGroup>

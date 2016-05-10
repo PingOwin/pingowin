@@ -22,7 +22,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="\bin\Release\views\*.*" target="content\views\" />
     <file src="\bin\Release\PingOwin.Core.Frontend.dll" target="lib\net45" /> 
     <file src="\bin\Release\PingOwin.Core.dll" target="lib\net45" /> 
     <file src="\bin\Release\PingOwin.Core.Store.SQLite.dll" target="lib\net45" /> 

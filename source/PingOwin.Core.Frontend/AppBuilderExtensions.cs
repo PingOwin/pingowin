@@ -28,7 +28,6 @@ namespace PingOwin.Core.Frontend
                 Bootstrapper = new PingOwinWebBootstrapper(databaseSettings)
             };
             
-            appBuilder.UseNancy(conf);
 
             var pingConfiguration = new PingConfiguration
             {
@@ -51,7 +50,10 @@ namespace PingOwin.Core.Frontend
                 RunBackgroundThread = options.StartService
             }, processor);
             serviceRunner.StartBackgroundThread();
-       
+
+
+
+            appBuilder.UseNancy(conf);
             return appBuilder;
         }
     }

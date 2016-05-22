@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Responses;
@@ -16,9 +18,12 @@ namespace PingOwin.Core.Frontend
         public RootModule(IPenguinRepository penguinRepository, IPenguinResultsRepository resultsRepo)
         {
             _resultsRepo = resultsRepo;
-            Get["/"] = x => new RedirectResponse("/pingowins", RedirectResponse.RedirectType.Temporary);
+            Get["/"] = async (x,t) =>
+            {
+                return new RedirectResponse("/pingowins", RedirectResponse.RedirectType.Temporary);
+            };
             
-            Get["/pingowins", true] = async (x, t) =>
+            Get["/pingowins"] = async (x, t) =>
             {
                 var all = await penguinRepository.GetAll();
                 var allPenguinsModel = new PingOwinsModel();
@@ -27,7 +32,7 @@ namespace PingOwin.Core.Frontend
                 return View["AllPingowins.sshtml", allPenguinsModel];
             };
 
-            Get["/results", true] = async (x,t) =>
+            Get["/results"] = async (x,t) =>
             {
                 var filter = this.Bind<ResultsQueryFilter>();
 
@@ -41,7 +46,7 @@ namespace PingOwin.Core.Frontend
                 {
                     Url = c.Url,
                     ResponseTime = c.ResponseTime.ToString(),
-                    TimeStamp = c.TimeStamp?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Undefined"
+                    TimeStamp = c.TimeStamp?.ToString("yyyy-MM-dd HH:MM:ss") ?? "Undefined"
                 });
                 resultsModel.Results = results;
                 return View["Results.sshtml", resultsModel];

@@ -238,3 +238,6 @@ _Pvt_Extensions
 .db-journal
 pingowin.db
 *.db
+
+build/
+distribution/

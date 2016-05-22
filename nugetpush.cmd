@@ -1,2 +1,4 @@
 SET version=%1
-nuget push ./packed/PingOwin.%version%.nupkg 
+SET nuget="tools\nuget\nuget.exe"
+
+%nuget% push ./packed/PingOwin.%version%.nupkg 

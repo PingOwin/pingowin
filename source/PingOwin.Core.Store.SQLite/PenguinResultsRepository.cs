@@ -16,9 +16,15 @@ namespace PingOwin.Core.Store.SQLite
             return Run(async con => await con.QueryAsync<PenguinResult>(sql));
         }
 
+        public Task<IEnumerable<PenguinResult>> GetAll(int skip, int take)
+        {
+            string sql = @"SELECT * FROM PenguinResults ORDER BY TimeStamp DESC LIMIT @Skip, @Count";
+            return Run(async con => await con.QueryAsync<PenguinResult>(sql, new { Skip = skip, Count = take}));
+        }
+
         public async Task<bool> Insert(PenguinResult target)
         {
-            string sql = @"INSERT INTO PenguinResults(Url,ResponseTime) VALUES(@Url, @ResponseTime)";
+            string sql = @"INSERT INTO PenguinResults(Url,ResponseTime,TimeStamp) VALUES(@Url, @ResponseTime, @TimeStamp)";
             return (await Run(con => con.ExecuteScalarAsync<int>(sql, target))) == 1;
         }
     }

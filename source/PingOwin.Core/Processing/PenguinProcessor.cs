@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using PingOwin.Core.Interfaces;
 using Serilog;
@@ -37,7 +38,8 @@ namespace PingOwin.Core.Processing
                 await _resultsRepo.Insert(new PenguinResult
                 {
                     Url = result.Url,
-                    ResponseTime = (int)result.ResponseTime
+                    ResponseTime = (int)result.ResponseTime,
+                    TimeStamp = DateTimeOffset.UtcNow.DateTime
                 });
             }
 

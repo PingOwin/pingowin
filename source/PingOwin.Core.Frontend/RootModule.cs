@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using Nancy;
+using Nancy.ModelBinding;
 using Nancy.Responses;
 using PingOwin.Core.Interfaces;
 
@@ -27,13 +29,30 @@ namespace PingOwin.Core.Frontend
 
             Get["/results", true] = async (x,t) =>
             {
-                var allResults = await _resultsRepo.GetAll();
+                var filter = this.Bind<ResultsQueryFilter>();
+
+                if (filter == null || filter.Take <= 0)
+                {
+                    return new RedirectResponse("/results?skip=0&take=20");
+                }
+                var allResults = await _resultsRepo.GetAll(filter.Skip,filter.Take);
                 var resultsModel = new PingResultsModel();
-                var results = allResults.Select(c =>  new SingleResult {Url = c.Url, ResponseTime = c.ResponseTime.ToString()});
+                var results = allResults.Select(c =>  new SingleResult
+                {
+                    Url = c.Url,
+                    ResponseTime = c.ResponseTime.ToString(),
+                    TimeStamp = c.TimeStamp?.ToString("yyyy-MM-dd HH:mm:ss") ?? "Undefined"
+                });
                 resultsModel.Results = results;
                 return View["Results.sshtml", resultsModel];
             };
         }
+    }
+
+    public class ResultsQueryFilter
+    {
+        public int Skip { get; set; }
+        public int Take { get; set; }
     }
 
     public class PingOwinsModel 
@@ -54,5 +73,8 @@ namespace PingOwin.Core.Frontend
     {
         public string Url { get; set; }
         public string ResponseTime { get; set; }
+        public string TimeStamp { get; set; }
+
+       
     }
 }

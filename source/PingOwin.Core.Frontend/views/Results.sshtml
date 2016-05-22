@@ -1,13 +1,16 @@
 ﻿@Master['MasterPage.sshtml']
+
 @Section['Content']
-<div class="row">
-    <div class="col-md-12">
-        <h2>Results:</h2>
-        <ul>
-            @Each.Results
-            <li>@Current.Url [@Current.ResponseTime ms]</li>
-            @EndEach
-        </ul>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Results:</h2>
+            <ul>
+                @Each.Results
+                <li>
+                    @Current.TimeStamp - @Current.Url (@Current.ResponseTime ms)
+                </li>
+                @EndEach
+            </ul>	
+        </div>
     </div>
-</div>
 @EndSection
